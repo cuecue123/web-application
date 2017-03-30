@@ -1,0 +1,12 @@
+{{#each lists as |list index|}}
+
+	<p>{{index}}. {{list.advice}},<a href="/{{list.slug}}">[comments]</a> ({{list.count}} users found this help!!!)</p>
+
+{{/each}}
+
+
+<form method="POST" action="/result">
+		Advice: <input type="text" name="advice" value="">
+		Name: <input type="text" name="user" value="">
+		<input type="submit" value = 'Submit Advice!'>
+</form>

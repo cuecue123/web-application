@@ -1,48 +1,42 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(___TODO__: your project name_)
-
-# Shoppy Shoperson 
+# Rejection Therapy Program
 
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
+Feeling afarid of getting rejected is a problem for many people. It hinders us from taking the first step and getting what we really want. Do you have the experience of missing an opportunity just because you are too timid to catch it?
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+This Rejection Therapy Program is an web application that aimed to help people conquer their fear of rejection by getting them used to rejection and learn to embrace it eventually. Once the user log in to this app, they will get an to do list, they cannot jump over any of item in the list, and it is mandatory for a everyday basis. But what they can do is to share their idea, and add to the to do list, so that other user can see it. And in each of the listing idea, there will be a sharing section, which allows user to share their exprience and progress.
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+
 
 
 ## Data Model
 
-(___TODO__: a description of your application's data and their relationships to each other_) 
+The application will store User, lists
 
-The application will store Users, Lists and Items
+* users can only have one list which is the same for all the users
+* each list can multiple comments (by embedding)
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
-
-(___TODO__: sample documents_)
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+  username: "Someone",
+  hash: *********
 }
+
 ```
 
-An Example List with Embedded Items:
+An Example List with Embedded Advice:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
+  user: "Qiuxuan",
+  advice: "Go out and borrow 100 dollars from a stranger",
+  count: 0, // you can downvote and upvote
+  comments: [
+    { name: "someone", experience: "I actually succeeded"},
+    { name: "pedestrian", experience: "Although I failed, I took the first step at least"}
   ],
   createdAt: // timestamp
 }
@@ -51,7 +45,7 @@ An Example List with Embedded Items:
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(___TODO__: create a first draft of your Schemas in db.js and link to it_)
+
 
 ## Wireframes
 

@@ -1,0 +1,46 @@
+<h1>{{list.advice}}</h1>
+
+
+<h2>Comments</h2>
+<hr>
+{{#each list.comments}}
+<p id = "verb">{{this.user}} said :</p>
+<p>{{this.text}}</p>
+<hr>
+{{/each}}
+
+
+<form method="POST" action="/comments">
+		Name: <input type="text" name="user" value="">
+		Experience: <input type="text" name="text" value="">
+		<input type="hidden" name="slug" value={{list.slug}}>
+		<input type="submit" value = 'Tell your stories!!'>
+</form>
+
+
+
+<br>
+
+<div id = "vote">
+<form method="POST" action="/count">
+		<input type="submit" name = "count" value = 'Like This Advice!'>
+		<input type="hidden" name="slug" value={{list.slug}}>
+</form>
+</div>
+
+<div id = "downvote">
+<form method="POST" action="/countdown">
+		<input type="submit" name = "count" value = 'Unlike This Advice'>
+		<input type="hidden" name="slug" value={{list.slug}}>
+</form>
+</div>
+<div id = "final">
+({{list.count}} users found this advice helpful.)
+
+</div>
+
+<br>
+<br>
+<div id = "button">
+<a href = "/"><button type="button">GO BACK TO THE HOME PAGE</button></a>
+</div>
