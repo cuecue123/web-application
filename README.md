@@ -59,7 +59,7 @@ An Exmaple Comment:
 ## Wireframes
 
 
-/list/index - page for showing the homepage, with all advice on it
+/index - page for showing the homepage, with all advice on it
 
 ![list index](documentation/index.png)
 
@@ -67,51 +67,96 @@ An Exmaple Comment:
 
 ![about](documentation/about.png)
 
-/list/slug - page for showing specific comments page for each advice
+/slug - page for showing specific comments page for each advice
 
 ![list](documentation/comments.png)
 
 ## Site map
 
 
-Here's a ![site map prototype](documentation/sitemap.png)
+Here's a site map:
+![site map prototype](documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
-(___TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
-
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can add an advice to the listing
+4. as a user, I can downvote and upvote an advice
+5. as a user, I can comment on an existing advices
+
 
 ## Research Topics
 
-(___TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
+* Integrate user authentication
+	* user authentication is a process  that allows a device to verify the identity of someone who connects to a network resource
+	* It compared the credentials provided  to those on file in a database of authorized users' information on a local operating system. In this way, it prevents some of the user's information to be seen by others, and it also gives users access and modification right.
+	* We can use passport.js to implement user authentication
+	* There are several the most common way to implement it:
+		1. [passport-local](https://github.com/jaredhanson/passport-local) : which is local account logins and signups, you can signup with your email and receive an verification email about your account. 
+		2. [passport-facebook](https://github.com/jaredhanson/passport-facebook) : which allows us to login and register via facebook
+		3. [password-hash](https://github.com/shaneGirish/bcrypt-nodejs) : using bcript-node.js to create password hash for local accounts.
+		
+* Perform client side form validation using a JavaScript library
+    * Client side form validation is check if the information the user send to the form is correct or not before they send the form to the server
+    * if the information the user input is what the form required, show error message to the user and don't allow them to submit invalid information
+    * We can implement this via javascript functions
+    * in the following example, if a form field is empty, this function will alerts a message and return false to prevent the form from being submitted
+   	``` javascripy
+   	function validateForm() {
+    	var x = document.forms["myForm"]["fname"].value;
+   	 if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+   	```
+   	* we call the above function when the form is submitted by:
+   	``` javascript
+
+   	<form name="myForm" action="/action_page_post.php" onsubmit="return validateForm()" method="post">
+		Name: <input type="text" name="fname">
+		<input type="submit" value="Submit">
+	</form>
+
+
+   	```
+
+   	* Note: javascript also allows us to validate numeric input
+ * Vue.js
+ 	* vue.js is a progressive framework for building user interface. 
+ 	* It has a core library which focused on the view layer only, and it can integrate with other libraries to make creating user interface much easier. 
+ 		1. it allows us to render data to DOM just using template syntax
+ 		2. it can also bind element attributes, for example:
+ 		``` javascript
+ 		var app2 = new Vue({
+ 			el: '#app-2',
+  			data: {
+    		message: 'You loaded this page on ' + new Date()
+  		}
+		})
+ 		```
+ 		```
+ 		<div id="app-2">
+  			<span v-bind:title="message">
+    		Hover your mouse over me for a few seconds to see my dynamically bound title!
+  			</span>
+		</div>
+ 		```	
+ 		which allows you to see a dynamic title
+ 		3. you can also set the conditionals and loop in the javascript, and run the loop in html as:
+ 		``` <li v-for: "todo in todos">{{todo.text}}</li> ```
+
+ 		4. it also make handling user input much easier
+ 		5. v-model directive that makes two-way binding between form input and app state much easier by using <input v-model="message">, and define message in js
+ 		6. Composing with components allows us to build large scale applications composed of small self-contained and reusable components.
+
+
+
 
 
 ## [Link to Initial Main Project File](app.js) 
 
-(___TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
 
-## Annotations / References Used
-
-(___TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
