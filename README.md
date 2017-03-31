@@ -41,6 +41,15 @@ An Example List with Embedded Advice:
   createdAt: // timestamp
 }
 ```
+An Exmaple Comment:
+
+``` javascript
+
+{
+	text: "It's very helpful!",
+	user: "somebody"
+}
+```
 
 
 ## [Link to Commented First Draft Schema](db.js) 
@@ -49,25 +58,23 @@ An Example List with Embedded Advice:
 
 ## Wireframes
 
-(___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/list/index - page for showing the homepage, with all advice on it
 
-![list create](documentation/list-create.png)
+![list index](documentation/index.png)
 
-/list - page for showing all shopping lists
+/about - page for showing the introduction to this program
 
-![list](documentation/list.png)
+![about](documentation/about.png)
 
-/list/slug - page for showing specific shopping list
+/list/slug - page for showing specific comments page for each advice
 
-![list](documentation/list-slug.png)
+![list](documentation/comments.png)
 
 ## Site map
 
-(___TODO__: draw out a site map that shows how pages are related to each other_)
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+Here's a ![site map prototype](documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
