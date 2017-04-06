@@ -42,4 +42,21 @@ mongoose.model("List", List);
 mongoose.model("User", User);
 
 
-mongoose.connect('mongodb://localhost/finalProject');
+if (process.env.NODE_ENV === 'PRODUCTION'){
+	var fs = require('fs');
+	var path = require('path');
+	var fn = path.join(__dirname, 'config.json');
+	var data = fs.readFileSync(fn);
+
+	var conf = JSON.parse(data);
+	var dbconf = conf.dbconf;}
+else{
+	dbconf = 'mongodb://localhost/finalProject';
+
+
+
+}
+mongoose.connect(dbconf);
+
+
+
