@@ -45,11 +45,12 @@ mongoose.model("User", User);
 if (process.env.NODE_ENV === 'PRODUCTION'){
 	var fs = require('fs');
 	var path = require('path');
-	var fn = path.join(__dirname, 'config.json');
+	var fn = path.join(__dirname, 'conf.json');
 	var data = fs.readFileSync(fn);
 
 	var conf = JSON.parse(data);
 	var dbconf = conf.dbconf;}
+	
 else{
 	dbconf = 'mongodb://localhost/finalProject';
 
