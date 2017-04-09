@@ -1,3 +1,4 @@
+<h2>Logged in as {{userNow}}</h2>
 {{#each lists as |list index|}}
 
 	<p>{{index}}. {{list.advice}},<a href="/{{list.slug}}">[comments]</a> ({{list.count}} users found this help!!!)</p>
@@ -6,7 +7,6 @@
 
 
 <form method="POST" action="/result">
-		Advice: <input type="text" name="advice" value="">
-		Name: <input type="text" name="user" value="">
+		<textarea name = "advice" rows="2" cols="50" placeholder="More advice ..."></textarea>
 		<input type="submit" value = 'Submit Advice!'>
 </form>

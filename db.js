@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const URLSlugs = require('mongoose-url-slugs');
-
+var passportLocalMongoose = require('passport-local-mongoose');
 // my schema goes here!
 // generate and connect to a new database
 
@@ -33,14 +33,13 @@ var User = new mongoose.Schema({
 });
 
 
-
+User.plugin(passportLocalMongoose);
 List.plugin(URLSlugs('advice'));
 
 // register the schema so that mongoose know about it
 mongoose.model("Comment", Comment);
 mongoose.model("List", List);
 mongoose.model("User", User);
-
 
 if (process.env.NODE_ENV === 'PRODUCTION'){
 	var fs = require('fs');
@@ -58,6 +57,4 @@ else{
 
 }
 mongoose.connect(dbconf);
-
-
 

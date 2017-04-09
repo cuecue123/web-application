@@ -1,0 +1,17 @@
+<h2>Welcome!</h2>
+
+{{#if notLoggedIn}}
+<a href="/login">Log In</a> or <a href = "/register">Register</a>
+
+{{else}}
+logged in as {{user}}
+<br>
+
+<a href="/list">Click to view the to do list</a>
+
+
+
+{{/if}}
+
+
+
