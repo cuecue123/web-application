@@ -96,7 +96,7 @@ app.get('/list', (req, res) => {
 });
 
 app.get('/login', (req, res)=>{
-	res.render('login');
+	res.render('login', {layout: 'other'});
 });
 
 app.post('/login', (req, res, next)=>{
@@ -107,14 +107,21 @@ app.post('/login', (req, res, next)=>{
 				res.redirect('/list');
 			});
 		} else{
-			res.render('login', {message:'Your login or password is incorrect.'})
+			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
 		}
 	})(req, res, next);
-})
+});
+
+app.get('/logout', (req, res)=>{
+	req.session.destroy(function(err){
+		res.redirect('/');
+	})
+	
+});
 
 
 app.get('/register', (req, res)=>{
-	res.render('register');
+	res.render('register',{layout: 'other'});
 });
 
 
@@ -122,7 +129,7 @@ app.post('/register', (req, res)=>{
 	User.register(new User({username: req.body.username}),
 		req.body.password, function(err, user){
 			if(err){
-				res.render('register', {message: 'Your registration information is not valid'})
+				res.render('register', {layout: 'other', message: 'Your registration information is not valid'})
 			} else{
 				passport.authenticate('local')(req, res, function(){
 					res.redirect('list');
