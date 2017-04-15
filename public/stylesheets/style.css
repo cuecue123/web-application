@@ -1,6 +1,19 @@
 a{
 	font-size: 1.5em;
+  /*color: red;*/
 }
+
+.logout{
+  font-weight: bolder;
+  /*color: red;*/
+  /*padding-left: 550px;*/
+  border: solid 2px #DDD;
+  background-color: #AAA;
+
+  -webkit-border-radius: 5px;
+   border-radius: 5px; 
+}
+
 .information{
   margin-top: 100px;
   text-align: center;

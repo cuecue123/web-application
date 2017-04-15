@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 require('./db');
 require('./auth');
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(bodyParser.json());
@@ -119,6 +120,14 @@ app.get('/logout', (req, res)=>{
 	
 });
 
+app.get('/about', (req, res)=>{
+	res.render('about');
+})
+
+app.get('/signup', (req, res)=>{
+	res.render('signup');
+})
+
 
 app.get('/register', (req, res)=>{
 	res.render('register',{layout: 'other'});
@@ -161,6 +170,8 @@ app.get('/:slug', (req, res) => {
 		res.render('comments', {list: list, layout: 'other'});
 	});
 
+
+
 });
 
 app.post('/comments', (req, res) =>{
@@ -200,6 +211,8 @@ app.post('/countdown', (req, res)=>{
 	
 
 })
+
+
 
 
 
