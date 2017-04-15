@@ -124,9 +124,7 @@ app.get('/about', (req, res)=>{
 	res.render('about');
 })
 
-app.get('/signup', (req, res)=>{
-	res.render('signup');
-})
+
 
 
 app.get('/register', (req, res)=>{
@@ -162,6 +160,24 @@ app.post('/result', (req, res) => {
 	});
 });
 
+app.get('/signup', (req, res)=>{
+	console.log('entered');
+	const Notsigned = true;
+	const userNow = req.user.username;
+	if (req.user.gender){
+		User.findOne({username: userNow}, function(err, user){
+		res.render('signup', {user:user});
+
+		});
+
+	}
+	else{	
+
+		res.render('signup', {Notsigned: Notsigned});
+
+	}
+})
+
 app.get('/:slug', (req, res) => {
 	var slug = req.params.slug;
 
@@ -172,13 +188,31 @@ app.get('/:slug', (req, res) => {
 
 
 
+
 });
 
+app.post('/signup', (req, res)=>{
+	const userNow = req.user.username;
+	const userGender = req.body.gender;
+	const freq = req.body.frequency;
+	const loc = req.body.location;
+	const des = req.body.description;
+
+	User.findOneAndUpdate({username: userNow},{$set:{gender:userGender, frequency:freq, location:loc, description: des}}, (err, list)=>{
+		
+		if (err){
+			res.send(err);
+		}
+		res.redirect('/signup');
+
+	});
+})
+
+
+
 app.post('/comments', (req, res) =>{
-	req.session.lastComment = req.body.text;
 
 	var slug1 = req.body.slug;
-	// console.log('here we get our '+ slug1)
 	List.findOneAndUpdate({slug:slug1}, {$push: {comments: {text: req.body.text, user: req.user.username}}}, (err, list)=>{
 		
 		if (err){
@@ -192,6 +226,8 @@ app.post('/comments', (req, res) =>{
 
 })
 
+
+
 app.post('/count', (req, res)=>{
 	var slug1 = req.body.slug;
 	List.findOneAndUpdate({slug:slug1},{$inc:{count: 1}},(err,list)=>{
@@ -201,6 +237,7 @@ app.post('/count', (req, res)=>{
 	
 
 })
+
 
 app.post('/countdown', (req, res)=>{
 	var slug1 = req.body.slug;

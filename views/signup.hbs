@@ -1,5 +1,39 @@
-// membership program, how often do you wanna join the program
-male or female, location,
-describe the thing that you are especially afraid of!
 
 
+{{#if Notsigned}}
+	<h1 class = 'header'>Sign Up For Our Yearly Membership!</h1>
+	<div class = "signup">
+		<form method="POST" action="/signup">
+			Gender: <input type = "radio" name = "gender" value = "female" checked>Female
+			<input type = "radio" name = "gender" value = "male">	Male
+			<input type = "radio" name = "gender" value = "other">	Other
+			<br>
+			<br>
+			Ideal frequency for activities per week:
+			<input type = 'text' name = 'frequency'>
+			Your Location:
+			<select>
+				<option value = "New York">New York</option>
+				<option value = "Los Angeles">Los Angeles</option>
+			</select><br>
+			<br>
+			<textarea name = "description" rows="4" cols="50" placeholder="Description about yourself..."></textarea>
+			<br>
+			<input type="submit" value = 'Subscribe!!'>
+		</form>
+	</div>
+	
+
+{{else}}
+
+		<h1 class = 'header'>Your Membership Information!</h1>
+		{{user.gender}}
+		{{user.frequency}}
+		{{user.location}}
+		{{user.description}}
+
+
+
+
+
+{{/if}}

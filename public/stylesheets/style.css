@@ -84,6 +84,21 @@ textarea{
    border-radius: 5px; 
    font-size: 1.5em;
 }
+.signup{
+  font-size: 1.5em;
+}
+
+.header{
+  text-align: center;
+}
+
+
+#intro{
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 1.5em;
+  margin-top: 5%;
+}
 
 #verb{
 	color:gray;
