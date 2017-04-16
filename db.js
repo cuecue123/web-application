@@ -31,7 +31,6 @@ var User = new mongoose.Schema({
 	password: String,
 	gender: String,
 	frequency: String,
-	location: String,
 	description: String,
 
 

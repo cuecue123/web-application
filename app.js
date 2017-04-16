@@ -69,7 +69,8 @@ list2.save(function(err, list2){
 app.get('/', (req, res)=>{
 	if(req.user == null){
 		const notLoggedIn = true;
-		res.render('home', {notLoggedIn: notLoggedIn, layout: 'nav'});
+		const LoggedIn = true;
+		res.render('home', {notLoggedIn: notLoggedIn, layout: 'logNav'});
 	}
 	else{
 		const user = req.user.username;
@@ -195,10 +196,10 @@ app.post('/signup', (req, res)=>{
 	const userNow = req.user.username;
 	const userGender = req.body.gender;
 	const freq = req.body.frequency;
-	const loc = req.body.location;
+	// const loc = req.body.location;
 	const des = req.body.description;
 
-	User.findOneAndUpdate({username: userNow},{$set:{gender:userGender, frequency:freq, location:loc, description: des}}, (err, list)=>{
+	User.findOneAndUpdate({username: userNow},{$set:{gender:userGender, frequency:freq, description: des}}, (err, list)=>{
 		
 		if (err){
 			res.send(err);
