@@ -122,7 +122,16 @@ app.get('/logout', (req, res)=>{
 });
 
 app.get('/about', (req, res)=>{
-	res.render('about');
+
+	
+	if(req.user == null){
+
+		res.render('about', {layout: 'logLayout'});
+	}
+	else{
+
+		res.render('about');
+	}
 })
 
 
