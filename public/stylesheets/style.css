@@ -3,6 +3,18 @@ a{
   /*color: red;*/
 }
 
+.login{
+
+  -webkit-border-radius: 10px;
+   border-radius: 5px; 
+
+}
+.login:hover{
+      border: solid 2px #AAA;
+   background-color: #FFF;
+
+}
+
 .logout{
   font-weight: bolder;
   /*color: red;*/
@@ -134,11 +146,18 @@ body{
 	text-align: center;
 }
 
+#commentButton{
+  font-family: Arial;
+  opacity: 0.8;
+  font-size: 0.5em;
+}
 button{
 	background-color: gray;
-	/*font-family: 'Indie Flower', cursive;*/
+	font-family: 'Indie Flower', cursive;
 
 	font-weight: bolder;
+   -webkit-border-radius: 10px;
+   border-radius: 5px; 
 
 }
 
@@ -160,9 +179,9 @@ input[type=submit] {
 	font-size: 1em;
 	font-family: 'Indie Flower', cursive;
     padding:5px 15px; 
-    background:#ccc; 
-    border:0 none;
-    cursor:pointer;
+    background:gray; 
+/*    border:0 none;
+    cursor:pointer;*/
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }

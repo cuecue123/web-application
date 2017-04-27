@@ -1,0 +1,14 @@
+
+<link rel = "stylesheet" href = "stylesheets/forum.css">
+<script src="javascripts/main.js"></script>
+<div id="messages"></div>
+
+
+<h3>Logged in as: <div id = "name">{{userNow}}</h3>
+
+<form method="POST" action="">
+		<textarea type="text" rows="4" cols="50" id="message" placeholder="message" value=""></textarea>	
+		<input type="hidden" id="from" value={{userNow}}>	
+		<input type="hidden" id="gender" value={{userGender}}>
+		<input type="submit">	
+</form>

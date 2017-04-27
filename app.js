@@ -2,8 +2,12 @@ var express = require('express');
 var path = require('path');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+
 var app = express();
 require('./db');
+const mongoose = require('mongoose');
+const Message = mongoose.model('Message');
+const Event = mongoose.model('Event');
 require('./auth');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-const mongoose = require('mongoose');
+// const Message = mongoose.model('Message');
 const List = mongoose.model('List');
 const User = mongoose.model('User');
 
@@ -97,6 +101,8 @@ app.get('/list', (req, res) => {
 	});
 });
 
+
+
 app.get('/login', (req, res)=>{
 	res.render('login', {layout: 'other'});
 });
@@ -140,6 +146,44 @@ app.get('/about', (req, res)=>{
 app.get('/register', (req, res)=>{
 	res.render('register',{layout: 'other'});
 });
+
+
+app.get('/chat', (req, res) => {
+
+	if (req.user != null){
+		const userNow = req.user.username;
+		const userGender = req.user.gender;
+		console.log(req.user.gender);
+		res.render('chat',{userNow: userNow, userGender: userGender});
+	} else{
+		res.redirect('/')
+
+	}
+
+});
+
+app.get('/finalProject/messages', (req, res) => {
+    Message.find((err, messages) => {
+        res.json(messages); 
+    });
+});
+
+app.post('/finalProject/messages', (req, res) => {
+
+    (new Message({
+        message:req.body.message,
+        from:req.body.from,
+        gender:req.body.gender, 
+    })).save((err, message) => {
+        if(err) {
+            console.log(err); 
+            res.json(err); 
+        } else {
+            res.json(message); 
+        }
+    });
+});
+
 
 
 app.post('/register', (req, res)=>{

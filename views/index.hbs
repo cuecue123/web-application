@@ -1,8 +1,9 @@
+
 <h2>Logged in as {{userNow}}</h2>
 <div class = 'text'>
 	{{#each lists as |list index|}}
 
-		<p>{{index}}. {{list.advice}},<a href="/{{list.slug}}">[comments]</a> ({{list.count}} users found this help!!!)</p>
+		<p>{{index}}. {{list.advice}}   <a href="/{{list.slug}}"><button type = "button" id = "commentButton">comments</button></a> ({{list.count}} users found this help!!!)</p>
 
 	{{/each}}
 </div>
