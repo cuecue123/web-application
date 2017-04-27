@@ -43,12 +43,7 @@ const Message = new mongoose.Schema({
 });
 
 
-const Event = new mongoose.Schema({
-	title: {type: String},
-	info: {type: String},
-	starter: {type: String},
 
-})
 
 
 
@@ -57,7 +52,7 @@ User.plugin(passportLocalMongoose);
 List.plugin(URLSlugs('advice'));
 
 // register the schema so that mongoose know about it
-mongoose.model("Event", Event);
+
 mongoose.model('Message', Message);
 mongoose.model("Comment", Comment);
 mongoose.model("List", List);

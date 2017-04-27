@@ -11,10 +11,11 @@ This Rejection Therapy Program is an web application that aimed to help people c
 
 ## Data Model
 
-The application will store User, lists
+The application will store User, lists and Messages
 
 * users can only have one list which is the same for all the users
 * each list can multiple comments (by embedding)
+* message retrive what the user say, and display it to the public through ajax
 
 
 An Example User:
@@ -50,6 +51,17 @@ An Exmaple Comment:
 	user: "somebody"
 }
 ```
+Am Example Message
+
+``` javascript
+
+{
+    message: Hi,
+    from: username,
+    gender: user.gender,
+};
+
+```
 
 
 ## [Link to Commented First Draft Schema](db.js) 
@@ -59,9 +71,13 @@ An Exmaple Comment:
 ## Wireframes
 
 
-/index - page for showing the homepage, with all advice on it
+/index - page for showing the homepage
 
 ![list index](documentation/index.png)
+
+/list - page for showing all the advice
+
+![lists](documentation/list.png)
 
 /about - page for showing the introduction to this program
 
@@ -69,7 +85,15 @@ An Exmaple Comment:
 
 /slug - page for showing specific comments page for each advice
 
-![list](documentation/comments.png)
+![comment](documentation/comment.png)
+
+/signup - page for signup for the membership
+
+![signup](documentation/signup.png)
+
+/chat - page for talking in the live forum
+
+![forum](documentation/forum.png)
 
 ## Site map
 
@@ -84,6 +108,7 @@ Here's a site map:
 3. as a user, I can add an advice to the listing
 4. as a user, I can downvote and upvote an advice
 5. as a user, I can comment on an existing advices
+5. as a user, I can talk in the live forum
 
 
 ## Research Topics
@@ -125,6 +150,7 @@ Here's a site map:
    	```
 
    	* Note: javascript also allows us to validate numeric input
+
  * Vue.js
  	* vue.js is a progressive framework for building user interface. 
  	* It has a core library which focused on the view layer only, and it can integrate with other libraries to make creating user interface much easier. 
@@ -163,9 +189,22 @@ Here's a site map:
 	3.Bootstrap comes with several JavaScript components in the form of jQuery plugins. They provide additional user interface elements such as dialog boxes, tooltips, and carousels. They also extend the functionality of some existing interface elements, including for example an auto-complete function for input fields. In version 2.0, the following JavaScript plugins are supported: Modal, Dropdown, Scrollspy, Tab, Tooltip, Popover, Alert, Button, Collapse, Carousel and Typeahead.
 
 
+* Ajax Interaction
+  1. Ajax stands for Asynchronous JavaScript and XML. It is a technique that allow web page to be update without refresh the page. It is a client side script that communicates to and from a server without the need for a postback.
+  2. It is used to perform a callback, making a quick round trip to and from the server to retrieve data without posting the entire page back to the server, so thet network utilization is minimizaed and quicker operations occurs. 
+  3. Ajax allows you to make asynchronous calls to a web server, avoiding waiting for all data to arrive before alloing the user to act once more
+
+
+
 
 
 
 ## [Link to Initial Main Project File](app.js) 
+
+
+# Annotation
+ 1. boostrap code based on [getbootstrap.com](https://v4-alpha.getbootstrap.com/components/carousel/)
+ 2. passport code based on [passportjs.org](http://passportjs.org/docs)
+ 3. ajax code based on [class example code](https://github.com/nyu-csci-ua-0480-008-spring-2017/examples/tree/master/class22/chat/public/javascripts)
 
 
