@@ -177,7 +177,7 @@ Here's a site map:
 ## [Link to Initial Main Project File](app.js) 
 
 
-# Annotation
+# Attribution
  1. boostrap code based on [getbootstrap.com](https://v4-alpha.getbootstrap.com/components/carousel/)
  2. passport code based on [passportjs.org](http://passportjs.org/docs)
  3. ajax code based on [class example code](https://github.com/nyu-csci-ua-0480-008-spring-2017/examples/tree/master/class22/chat/public/javascripts)
