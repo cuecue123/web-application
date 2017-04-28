@@ -18,7 +18,7 @@
 		<textarea type="text" rows="4" cols="50" id="message" placeholder="message" value=""></textarea>	
 		<input type="hidden" id="from" value={{userNow}}>	
 		<input type="hidden" id="gender" value={{userGender}}>
-		<input type="submit" value = 'submit' onclick = "myFunction({{userNow}}, {{userGender}})">	
+		<input type="submit" value = 'submit' onclick = "myFunction({{'userNow'}}, {{'userGender'}})">	
 </form>
 
 <script>
@@ -26,7 +26,7 @@
 
 	function myFunction(username, userGender){
 		const p = new User(username, userGender);
-		alert(p.getInfo());
+		confirm(p.getInfo());
 	}
 
 
