@@ -116,7 +116,7 @@ Here's a site map:
 
 
 
-* Integrate user authentication
+* Integrate user authentication (5 points)
 	* user authentication is a process  that allows a device to verify the identity of someone who connects to a network resource
 	* It compared the credentials provided  to those on file in a database of authorized users' information on a local operating system. In this way, it prevents some of the user's information to be seen by others, and it also gives users access and modification right.
 	* We can use passport.js to implement user authentication
@@ -125,7 +125,7 @@ Here's a site map:
 		2. [passport-facebook](https://github.com/jaredhanson/passport-facebook) : which allows us to login and register via facebook
 		3. [password-hash](https://github.com/shaneGirish/bcrypt-nodejs) : using bcript-node.js to create password hash for local accounts.
 		
-* Perform client side form validation using a JavaScript library
+* Perform client side form validation using a JavaScript library (3 points)
     * Client side form validation is check if the information the user send to the form is correct or not before they send the form to the server
     * if the information the user input is what the form required, show error message to the user and don't allow them to submit invalid information
     * We can implement this via javascript functions
@@ -155,7 +155,7 @@ Here's a site map:
 
 		
 	
-* Bootstrap.js
+* Bootstrap.js (2 points)
 
   1.Bootstrap is a free and open-source front-end web framework for designing websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions. Unlike many web frameworks, it concerns itself with front-end development only.
 
