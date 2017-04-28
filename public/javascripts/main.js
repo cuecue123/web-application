@@ -14,6 +14,39 @@ function click(evt) {
     const data = `message=${message}&from=${from}&gender=${gender}`;
     req.send(data);
 }
+
+class femaleUser{
+    constructor(from){
+        this.from = from;
+        this.emoji = "👧";
+
+    }
+    showEmoji(){
+        return this.emoji;
+
+    }
+}
+
+class maleUser{
+    constructor(from){
+        this.from = from;
+        this.emoji = "👦";
+    }
+
+    showEmoji(){
+        return this.emoji;
+    }
+}
+
+class unknownUser{
+    constructor(from){
+        this.from = from;
+        this.emoji = "😊 ";
+    }
+    showEmoji(){
+        return this.emoji;
+    }
+}
 function getMessages() {
     const req = new XMLHttpRequest();
     req.open('GET', '/finalProject/messages');
@@ -26,16 +59,22 @@ function getMessages() {
                 const user = document.createElement('div');
                 user.setAttribute('class', 'username');
                 if (m.gender === 'female'){
-                    user.innerHTML =  "👧 "+ m.from + ":";
+                    const fel = new femaleUser(m.from);
+                    const emoji = fel.showEmoji();
+                    user.innerHTML =  emoji+ m.from + ":";
 
                 }
                 else if (m.gender === "male"){
-                    user.innerHTML =  "👦 "+ m.from + ":";
+                    const mal = new maleUser(m.from);
+                    const emoji = mal.showEmoji();
+                    user.innerHTML =  emoji + m.from + ":";
 
                 }
 
                 else{
-                    user.innerHTML = "😊 "+ m.from + ":";
+                    const unknow = new unknownUser(m.from);
+                    const emoji = unknow.showEmoji();
+                    user.innerHTML = emoji+ m.from + ":";
 
                 }
                 
