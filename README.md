@@ -91,7 +91,8 @@ Am Example Message
 
 ![signup](documentation/signup.png)
 
-/chat - page for talking in the live forum
+/chat - page for talking in the live forum,
+how ever, this page using ajax interaction, and you can only see the message when you click on the box.
 
 ![forum](documentation/forum.png)
 
