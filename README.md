@@ -152,33 +152,7 @@ Here's a site map:
 
    	* Note: javascript also allows us to validate numeric input
 
- * Vue.js
- 	* vue.js is a progressive framework for building user interface. 
- 	* It has a core library which focused on the view layer only, and it can integrate with other libraries to make creating user interface much easier. 
- 		1. it allows us to render data to DOM just using template syntax
- 		2. it can also bind element attributes, for example:
- 		``` javascript
- 		var app2 = new Vue({
- 			el: '#app-2',
-  			data: {
-    		message: 'You loaded this page on ' + new Date()
-  		}
-		})
- 		```
- 		```
- 		<div id="app-2">
-  			<span v-bind:title="message">
-    		Hover your mouse over me for a few seconds to see my dynamically bound title!
-  			</span>
-		</div>
- 		```	
- 		which allows you to see a dynamic title
- 		3. you can also set the conditionals and loop in the javascript, and run the loop in html as:
- 		``` <li v-for: "todo in todos">{{todo.text}}</li> ```
 
- 		4. it also make handling user input much easier
- 		5. v-model directive that makes two-way binding between form input and app state much easier by using <input v-model="message">, and define message in js
- 		6. Composing with components allows us to build large scale applications composed of small self-contained and reusable components.
 		
 	
 * Bootstrap.js
