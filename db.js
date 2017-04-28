@@ -8,6 +8,47 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 
 
+// function checkValid(val){
+// 	alph = false;
+// 	num = false;
+// 	if (val.length >= 8){
+// 		for (let i = 0; i < val.length; i++){
+// 			if (val.charAt(i).match('/^[a-zA-Z()]+$/')){
+// 				alph = true;
+
+// 			}
+// 			else if (Number.isInteger(parseInt(val.charAt(i)))){
+// 				num = true;
+
+// 			}
+// 		}
+// 		if (alph && num){
+// 			return true;
+// 		}
+// 		else{
+// 			return false;
+// 		}
+// 	}
+
+// }
+
+// var s = '123456';
+// for ( var i = 0; i < s.length; i++ )
+// {
+//   // `s.charAt(i)` gets the character
+//   // you may want to do a some jQuery thing here, like $('<img...>')
+//   document.write( '<img src="' + s.charAt(i) + '.png" />' );
+// }
+
+// const custom = [checkValid, 'uh oh, password length should be at least 8, and it should contain both letter and numbers']
+
+function checkValid(val){
+	return val.length >= 10;
+}
+
+const custom = [checkValid, 'uh oh, the advice is too short!!']
+
+
 var Comment = new mongoose.Schema({
 	text: {type:String,required:true},
 	user: {type:String, required:true},
@@ -16,8 +57,8 @@ var Comment = new mongoose.Schema({
 
 
 var List = new mongoose.Schema({
-	advice: String,
-	user: String,
+	advice: {type: String, required: true, validate: custom},
+	user: {type:String, required: true},
 	count: {type: Number, default: 0},
 	comments: [Comment],
 	// createdAt: timestamp

@@ -1,6 +1,7 @@
 
 <h2>Logged in as {{userNow}}</h2>
 <div class = 'text'>
+	
 	{{#each lists as |list index|}}
 
 		<p>{{index}}. {{list.advice}}   <a href="/{{list.slug}}"><button type = "button" id = "commentButton">comments</button></a> ({{list.count}} users found this help!!!)</p>
@@ -8,8 +9,23 @@
 	{{/each}}
 </div>
 
+{{#if err}}
+<ul>
+{{#each err.errors}}
+<li>{{message}}</li>
+{{/each}}
+</ul>
+
+{{/if}}
 
 <form method="POST" action="/result">
 		<textarea name = "advice" rows="4" cols="50" placeholder="More advice ..."></textarea>
 		<input type="submit" value = 'Submit Advice!'>
 </form>
+{{#if err}}
+<br>
+<div id = "button">
+<a href = "/list"><button type="button">GO BACK TO THE TO-DO LIST</button></a>
+</div>
+<br>
+{{/if}}

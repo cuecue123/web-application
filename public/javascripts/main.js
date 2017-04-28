@@ -1,47 +1,7 @@
-// class Conversation {
-//   // ..and an (optional) custom class constructor. If one is
-//   // not supplied, a default constructor is used instead:
-//   // constructor() { }
-//   constructor(message, from, gender) {
-//     this.message = message;
-//     this.from = from;
-//     this.gender = gender;
-//   }
-//   getTitle(){
-//      if (this.gender === 'female'){
-//         return  "👧 "+ this.from + ":";
 
-//                 }
-//     else if (this.gender === "male"){
-//         return =  "👦 "+ this.from + ":";
-
-//                 }
-
-//     else{
-//         return = "😊 "+ this.from + ":";
-
-//                 }
-//   }
-
-
-//   getWords(){
-//     return this.message;
-//   }
-
- 
-// }
-
-
-
-// function deleteInfo(){
-
-
-
-// }
 count = 0;
 
 function click(evt) {
-    //alert('clicked');
     evt.preventDefault();
     const req = new XMLHttpRequest();
     req.open('POST', '/finalProject/messages');
@@ -62,7 +22,6 @@ function getMessages() {
             const div = document.querySelector('#messages');
             div.innerHTML = '';
             const messages = JSON.parse(req.responseText);
-            // const count = new Conversation();
             messages.forEach((m) => {
                 const user = document.createElement('div');
                 user.setAttribute('class', 'username');

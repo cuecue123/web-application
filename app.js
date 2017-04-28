@@ -206,11 +206,15 @@ app.post('/result', (req, res) => {
 		user: req.user.username, 
 		
 	});
+	const userNow = req.user.username;
 	list.save((err, lists) => {
 		if(err) {
-			res.send(err); 
+			console.log(err);
+			res.render('index', {lists:lists, userNow: userNow, err: err})
 		}
-		res.redirect('/list');
+		else{
+			res.redirect('/list')
+		};
 	});
 });
 
@@ -237,6 +241,7 @@ app.get('/:slug', (req, res) => {
 
 	// var lastComment = req.session.lastComment;
 	List.findOne({slug: slug}, function(err, list){
+		console.log(err);
 		res.render('comments', {list: list, layout: 'other'});
 	});
 
@@ -270,6 +275,7 @@ app.post('/comments', (req, res) =>{
 	List.findOneAndUpdate({slug:slug1}, {$push: {comments: {text: req.body.text, user: req.user.username}}}, (err, list)=>{
 		
 		if (err){
+			// console.log(err);
 			res.send(err);
 
 		}
