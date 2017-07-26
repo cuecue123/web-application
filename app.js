@@ -83,6 +83,19 @@ app.get('/', (req, res)=>{
 	}
 })
 
+app.post('/', (req, res)=>{
+	User.register(new User({username: req.body.username}),
+		req.body.password, function(err, user){
+			if(err){
+				res.render('register', {layout: 'other', message: 'Your registration information is not valid'})
+			} else{
+				passport.authenticate('local')(req, res, function(){
+					res.redirect('list');
+				});
+			}
+		})
+})
+
 app.get('/list', (req, res) => {
 
 
@@ -125,18 +138,18 @@ app.get('/random', (req, res)=>{
 // 	})(req, res, next);
 // });
 
-app.post('/', (req, res, next)=>{
-	passport.authenticate('local', function(err, user){
-		if(user){
-			req.logIn(user, function(error){
-				console.log(user);
-				res.redirect('/list');
-			});
-		} else{
-			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
-		}
-	})(req, res, next);
-});
+// app.post('/', (req, res, next)=>{
+// 	passport.authenticate('local', function(err, user){
+// 		if(user){
+// 			req.logIn(user, function(error){
+// 				console.log(user);
+// 				res.redirect('/list');
+// 			});
+// 		} else{
+// 			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
+// 		}
+// 	})(req, res, next);
+// });
 
 
 app.get('/logout', (req, res)=>{
@@ -205,18 +218,18 @@ app.post('/finalProject/messages', (req, res) => {
 
 
 
-app.post('/register', (req, res)=>{
-	User.register(new User({username: req.body.username}),
-		req.body.password, function(err, user){
-			if(err){
-				res.render('register', {layout: 'other', message: 'Your registration information is not valid'})
-			} else{
-				passport.authenticate('local')(req, res, function(){
-					res.redirect('list');
-				});
-			}
-		})
-})
+// app.post('/register', (req, res)=>{
+// 	User.register(new User({username: req.body.username}),
+// 		req.body.password, function(err, user){
+// 			if(err){
+// 				res.render('register', {layout: 'other', message: 'Your registration information is not valid'})
+// 			} else{
+// 				passport.authenticate('local')(req, res, function(){
+// 					res.redirect('list');
+// 				});
+// 			}
+// 		})
+// })
 
 
 app.post('/result', (req, res) => {

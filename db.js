@@ -70,9 +70,10 @@ var List = new mongoose.Schema({
 var User = new mongoose.Schema({
 	username: String,
 	password: String,
-	gender: String,
-	frequency: String,
-	description: String,
+	netId: String,
+	// gender: String,
+	// frequency: String,
+	// description: String,
 
 
 });
