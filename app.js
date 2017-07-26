@@ -74,7 +74,8 @@ app.get('/', (req, res)=>{
 	if(req.user == null){
 		const notLoggedIn = true;
 		const LoggedIn = true;
-		res.render('home', {notLoggedIn: notLoggedIn, layout: 'logNav'});
+		// res.render('home', {notLoggedIn: notLoggedIn, layout: 'logNav'});
+		res.render('null', {layout: 'notLoggedIn'});
 	}
 	else{
 		const user = req.user.username;
@@ -107,11 +108,24 @@ app.get('/random', (req, res)=>{
 });
 
 
-app.get('/login', (req, res)=>{
-	res.render('login', {layout: 'other'});
-});
+// app.get('/login', (req, res)=>{
+// 	res.render('login', {layout: 'other'});
+// });
 
-app.post('/login', (req, res, next)=>{
+// app.post('/login', (req, res, next)=>{
+// 	passport.authenticate('local', function(err, user){
+// 		if(user){
+// 			req.logIn(user, function(error){
+// 				console.log(user);
+// 				res.redirect('/list');
+// 			});
+// 		} else{
+// 			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
+// 		}
+// 	})(req, res, next);
+// });
+
+app.post('/', (req, res, next)=>{
 	passport.authenticate('local', function(err, user){
 		if(user){
 			req.logIn(user, function(error){
@@ -123,6 +137,7 @@ app.post('/login', (req, res, next)=>{
 		}
 	})(req, res, next);
 });
+
 
 app.get('/logout', (req, res)=>{
 	req.session.destroy(function(err){
