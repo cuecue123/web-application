@@ -101,6 +101,10 @@ app.get('/list', (req, res) => {
 	});
 });
 
+app.get('/random', (req, res)=>{
+
+	res.render('random');
+});
 
 
 app.get('/login', (req, res)=>{
