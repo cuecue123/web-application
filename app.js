@@ -84,9 +84,9 @@ app.get('/', (req, res)=>{
 	}
 })
 
-app.post('/', (req, res)=>{
-
-	User.register(new User({username: req.body.username}),
+app.post('/', (req, res, next)=>{
+	if (req.body.check == "true"){
+			User.register(new User({username: req.body.username}),
 		req.body.password, function(err, user){
 			if(err){
 				res.render('register', {layout: 'other', message: 'Your registration information is not valid'})
@@ -96,20 +96,29 @@ app.post('/', (req, res)=>{
 				});
 			}
 		})
+
+	}
+	else{
+		console.log(req.body.check);
+		passport.authenticate('local', function(err, user){
+			if(user){
+				console.log("h1");
+				req.logIn(user, function(error){
+					console.log(user+"~~~~~");
+					res.redirect('/list');
+				});
+			} else{
+				console.log("entered");
+				res.render('null',  {layout: 'notLoggedIn', message:'Your login or password is incorrect.'})
+			}
+		})(req, res, next);
+
+	}
+
 })
 
 app.post('/signin', (req, res, next) =>{
 
-	passport.authenticate('local', function(err, user){
-		if(user){
-			req.logIn(user, function(error){
-				console.log(user);
-				res.redirect('/list');
-			});
-		} else{
-			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
-		}
-	})(req, res, next);
 
 
 });
