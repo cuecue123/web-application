@@ -79,11 +79,13 @@ app.get('/', (req, res)=>{
 	}
 	else{
 		const user = req.user.username;
-		res.render('home', {user:user, layout: 'nav'});
+		// res.render('home', {user:user, layout: 'nav'});
+		res.render('null', {user: user, layout:'LoggedIn'});
 	}
 })
 
 app.post('/', (req, res)=>{
+
 	User.register(new User({username: req.body.username}),
 		req.body.password, function(err, user){
 			if(err){
@@ -95,6 +97,22 @@ app.post('/', (req, res)=>{
 			}
 		})
 })
+
+app.post('/signin', (req, res, next) =>{
+
+	passport.authenticate('local', function(err, user){
+		if(user){
+			req.logIn(user, function(error){
+				console.log(user);
+				res.redirect('/list');
+			});
+		} else{
+			res.render('login',  {layout: 'other', message:'Your login or password is incorrect.'})
+		}
+	})(req, res, next);
+
+
+});
 
 app.get('/list', (req, res) => {
 
