@@ -2,6 +2,16 @@ a{
 	font-size: 1.5em;
   /*color: red;*/
 }
+.logo{
+  position: fixed;
+  left:40px;
+  top:-3.7px;
+  width: 60px;
+  height: 60px;
+}
+.bar{
+  margin-left: -40px;
+}
 
 .login{
 
@@ -16,6 +26,7 @@ a{
 }
 
 .logout{
+  right:-464px;
   font-weight: bolder;
   /*color: red;*/
   /*padding-left: 550px;*/

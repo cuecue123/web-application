@@ -68,12 +68,20 @@ var List = new mongoose.Schema({
 
 
 var User = new mongoose.Schema({
-	username: String,
-	password: String,
-	netId: String,
-	// gender: String,
-	// frequency: String,
-	// description: String,
+	username: {type: String},
+	password: {type: String},
+	netId: {type: String},
+	firstname: {type: String},
+	lastname: {type: String},
+	year: {type: String},
+	gpa: {type: Number},
+	major: {type: String},
+	hour: {type: String},
+	challenge: {type: String},
+	extra: {type: String},
+	subject1: {type: String},
+	subject2: {type: String},
+	subject3: {type: String},
 
 
 });
@@ -83,6 +91,22 @@ const Message = new mongoose.Schema({
     from: {type: String},
     gender: {type: String},
 });
+
+
+const Question = new mongoose.Schema({
+	username: {type: String},
+	firstname: {type: String},
+	lastname: {type: String},
+	year: {type: Number},
+	gpa: {type: Number},
+	major: {type: String},
+	hour: {type: String},
+	challenge: {type: String},
+	extra: {type: String},
+	subject1: {type: String},
+	subject2: {type: String},
+	subject3: {type: String},
+})
 
 
 
