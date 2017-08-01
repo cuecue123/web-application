@@ -48,7 +48,7 @@ app.get('/', (req, res)=>{
 	else{
 		const user = req.user.username;
 		// res.render('home', {user:user, layout: 'nav'});
-		res.render('null', {user: user, layout:'LoggedIn'});
+		res.render('LoggedIn', {user: user, layout:'navlayout'});
 	}
 })
 
@@ -56,11 +56,10 @@ app.get('/question', (req, res)=>{
 	if (req.user){
 		User.findOne({username: req.user.username}, function(err, user){
 			if (user.lastname && user.firstname && user.year && user.gpa && user.major){
-				console.log("haha");
-				res.render('filledIn', {fm:user.firstname, lm:user.lastname, degree:user.year, grade:user.gpa, mj:user.major, time:user.hour, difficulty:user.challenge, other:user.extra, one:user.subject1, two:user.subject2, three:user.subject3});
+				res.render('filledIn', {layout:'navlayout',fm:user.firstname, lm:user.lastname, degree:user.year, grade:user.gpa, mj:user.major, time:user.hour, difficulty:user.challenge, other:user.extra, one:user.subject1, two:user.subject2, three:user.subject3});
 			}
 			else{
-				res.render('questionnaire');
+				res.render('questions', {layout: 'navlayout'});
 				// console.log("haha");
 			}
 		});
@@ -82,7 +81,7 @@ app.post('/', (req, res, next)=>{
 				res.render('null', {layout: 'NotSignedUp', message: 'Your registration information is not valid'})
 			} else{
 				passport.authenticate('local')(req, res, function(){
-					res.redirect('/question');
+					res.redirect('/about');
 				});
 			}
 		})
@@ -95,11 +94,11 @@ app.post('/', (req, res, next)=>{
 				console.log("h1");
 				req.logIn(user, function(error){
 					console.log(user);
-					res.redirect('/question');
+					res.redirect('/about');
 				});
 			} else{
 				console.log("entered");
-				res.render('null',  {layout: 'notLoggedIn', message:'Your username or password is incorrect.'})
+				res.render('notLoggedIn',  {layout: 'navlayout', message:'Your username or password is incorrect.'})
 			}
 		})(req, res, next);
 
@@ -169,7 +168,7 @@ app.post('/question', (req, res)=>{
 		if (err){
 			res.send(err);
 		}
-		res.render('filledin', {fm:fm, lm:lm, degree:degree, grade:grade, mj:mj, time:time, difficulty:difficulty, other:other, one:one, two:two, three:three});
+		res.render('filledin', {layout:'navlayout',fm:fm, lm:lm, degree:degree, grade:grade, mj:mj, time:time, difficulty:difficulty, other:other, one:one, two:two, three:three});
 
 	});	
 	}

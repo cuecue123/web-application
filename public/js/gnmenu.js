@@ -79,7 +79,7 @@
 			this.isMenuOpen = true;
 			classie.add( this.menu, 'gn-open-all' );
 			this._closeIconMenu();
-			document.getElementById("content").setAttribute("style", "left: 370px");
+			
 		},
 		_closeMenu : function() {
 			if( !this.isMenuOpen ) return;
@@ -87,7 +87,7 @@
 			this.isMenuOpen = false;
 			classie.remove( this.menu, 'gn-open-all' );
 			this._closeIconMenu();
-			document.getElementById("content").removeAttribute("style");	}
+			}
 	}
 
 	// add to global namespace

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Form</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="stylesheets/questions.css">
+
+  
+</head>
+
+<body>
+  <form>
+  <input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" required autofocus />
+  <label for="input-1">
+    <span class = "label-text">First Name</span>
+    <span class="nav-dot"></span>
+
+    <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
+  </label>
+  <input id="input-2" type="text" name = "lastname" placeholder="Chen" required />
+  <label for="input-2">
+    <span class="label-text">Last Name</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = 'year' placeholder="1" required />
+  <label for="input-3">
+    <span class="label-text">School Year</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-4" type="text" name = "gpa" placeholder="4.0" required />
+  <label for="input-4">
+    <span class="label-text">GPA</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-5" type="text" name = "major" placeholder="Computer Science" required />
+  <label for="input-5">
+    <span class="label-text">Major</span>
+    <span class="nav-dot"></span>
+  </label>
+
+    <input id="input-6" type="text" name = "hour" placeholder="10" required />
+  <label for="input-6">
+    <span class="label-text">Hours Studying Per Week</span>
+    <span class="nav-dot"></span>
+  </label>
+
+    <input id="input-7" pattern="[1-4]" name = "challenge" placeholder="1" required />  
+  <label for="input-7">
+    <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+<input id="input-8" type="text" name = "extra" placeholder="Yes" required />
+  <label for="input-8">
+    <span class="label-text">Are you only interested in courses in your major?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+  <input id="input-9" type="text" name = "challenge" placeholder="1" required />
+  <label for="input-9">
+    <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+
+  <button type="submit">Create Your Account</button>
+  <p class="tip">Press Tab</p>
+  <!-- <div class="signup-button">Create Your Student Profile</div> -->
+</form>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Google Nexus Website Menu</title>
 		<meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
 		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
@@ -23,18 +23,18 @@
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-							
-								
-								<li><a class="gn-icon"><i style = "padding: 0 24.85px 0 24.85px " class="fa fa-question" aria-hidden="true"></i>About</a></li>
-								<li><a class="gn-icon"><i style = "padding: 0 23.57px 0 23.57px" class="fa fa-user" aria-hidden="true"></i>User Profile</a></li>
+
+
+								<li><a class="gn-icon" href="/about"><i style = "padding: 0 24.85px 0 24.85px " class="fa fa-question" aria-hidden="true"></i>About</a></li>
+								<li><a class="gn-icon" href="/profile"><i style = "padding: 0 23.57px 0 23.57px" class="fa fa-user" aria-hidden="true"></i>User Profile</a></li>
 								<li>
-									<a class="gn-icon gn-icon-archive">Transcript</a>
+									<a class="gn-icon gn-icon-archive" href="/question">Questionnaire</a>
 
 								</li>
-								<li><a class="gn-icon gn-icon-article">Recommendation</a></li>
+								<li><a class="gn-icon gn-icon-article" href="/recommend" >Recommendation</a></li>
 								<li>
-									<a class="gn-icon " href="/quest"><i style = "padding: 0 21.64px 0 21.64px;" class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a>
-				
+									<a class="gn-icon " href="/logout"><i style = "padding: 0 21.64px 0 21.64px;" class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a>
+
 								</li>
 							</ul>
 						</div><!-- /gn-scroller -->
@@ -60,17 +60,17 @@
 			var myFunction = function() {
 			    var attribute = document.getElementById("content").getAttribute("style");
 			    if (attribute == null){
-			    	document.getElementById("content").setAttribute("style", "margin-left: 370px;") 
+			    	document.getElementById("content").setAttribute("style", "margin-left: 370px;")
 			    }
 			    else{
 			    	document.getElementById("content").removeAttribute("style");
 
 			    }
 
-			    
+
 			};
 
-			
+
 
 			for (var i = 0; i < classname.length; i++) {
 			    classname[i].addEventListener('click', myFunction, false);
@@ -79,8 +79,8 @@
 
 
 
-			
+
 		</script> -->
-		
+
 	</body>
 </html>
