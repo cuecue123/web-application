@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Form</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="stylesheets/questions.css">
+
+  
+</head>
+
+<body>
+  <form  method = "POST" action = "">
+  	<input id="input-1" type="text" name = "firstname" placeholder="{{firstname}}" required autofocus />
+  	<label for="input-1">
+  	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
+    <span class = "label-text">First Name</span>
+    <span class="nav-dot"></span>
+    <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
+  	</label>
+  	
+  	<input id="input-2" type="text" name = "lastname" placeholder="{{lastname}}" required />
+  	<label for="input-2">
+    <span class="label-text">Last Name</span>
+    <span class="nav-dot"></span>
+  	</label>
+  	
+  	<input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="{{year}}" required/>
+  <label for="input-3">
+    <span class="label-text">School Year</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-4" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="{{gpa}}" required />
+  <label for="input-4">
+    <span class="label-text">GPA</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-5" type="text" name = "major" placeholder="{{major}}" required />
+  <label for="input-5">
+    <span class="label-text">Major</span>
+    <span class="nav-dot"></span>
+  </label>
+
+    <input id="input-6" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="{{hour}}" required />
+  <label for="input-6">
+    <span class="label-text">Hours Studying Per Week</span>
+    <span class="nav-dot"></span>
+  </label>
+
+    <input id="input-7" pattern="[1-9]{1}|10" name = "challenge" placeholder="{{challenge}}" required />  
+  <label for="input-7">
+    <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+<input id="input-8" type="text" pattern = "(?:Yes|No)" name = "extra" placeholder="{{extra}}" required />
+  <label for="input-8">
+    <span class="label-text">Are you only interested in courses in your major?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+
+
+  <button type="submit">Create Your Account</button>
+  <p class="tip">Press Enter</p>
+  <!-- <div class="signup-button">Create Your Student Profile</div> -->
+</form>
+  
+<script src = "/js/jQuery-3.2.1.js" />
+<script>
+
+
+
+document.querySelector('input').addEventListener('keydown', function (e) {
+    if (e.which == 9) {
+        e.preventDefault();
+    }
+});
+
+</script>
+</body>
+</html>
