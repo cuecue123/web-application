@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Form</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="stylesheets/transcript.css">
+
+  
+</head>
+
+<body>
+
+  <form  method = "POST" action = "">
+  
+  <input id="input-1" type="text" name = "class_name" placeholder="CSCI-UA 101" required autofocus />
+  <label for="input-1">
+  	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;"> {{message}}</span>
+    <span class = "label-text">Course Name</span>
+    <span class="nav-dot"></span>
+
+    <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
+  </label>
+  <input id="input-2" type="text" name = "class_professor" placeholder="Anasse Bari" required />
+  <label for="input-2">
+    <span class="label-text">What is your professor's full name?</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-3" type="text" pattern = "[A-D][+-]?|F" title = "please enter a valid letter grade" name = 'class_grade' placeholder="A" required />
+  <label for="input-3">
+    <span class="label-text">Grade</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-4" type="text" pattern = "[1-10]{1}" name = "class_interest" placeholder="10" required />
+  <label for="input-4">
+    <span class="label-text">On a scale from 1 to 10, how interesting was this course?</span>
+    <span class="nav-dot"></span>
+  </label>
+  <input id="input-5" type="text" pattern = "[1-10]{1}" name = "class_difficulty" placeholder="5" required />
+  <label for="input-5">
+    <span class="label-text">On a scale from 1 to 10, how difficult was this course?</span>
+    <span class="nav-dot"></span>
+  </label>
+
+  
+  <button type="submit">Submit Your Course Evaluation</button>
+  <p class="tip">Press Tab</p>
+  <!-- <div class="signup-button">Create Your Student Profile</div> -->
+</form>
+  
+
+</body>
+</html>

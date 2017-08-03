@@ -73,40 +73,51 @@ var User = new mongoose.Schema({
 	netId: {type: String},
 	firstname: {type: String},
 	lastname: {type: String},
-	year: {type: String},
-	gpa: {type: Number},
-	major: {type: String},
-	hour: {type: String},
-	challenge: {type: String},
-	extra: {type: String},
-	subject1: {type: String},
-	subject2: {type: String},
-	subject3: {type: String},
-
-
-});
-
-const Message = new mongoose.Schema({
-    message: {type: String},
-    from: {type: String},
-    gender: {type: String},
-});
-
-
-const Question = new mongoose.Schema({
-	username: {type: String},
-	firstname: {type: String},
-	lastname: {type: String},
 	year: {type: Number},
 	gpa: {type: Number},
 	major: {type: String},
-	hour: {type: String},
-	challenge: {type: String},
+	hour: {type: Number},
 	extra: {type: String},
-	subject1: {type: String},
-	subject2: {type: String},
-	subject3: {type: String},
-})
+	challenge: {type: String},
+	courses: [
+	{
+		courseName: {type: String, required: true},
+		professor: {type: String, required: true},
+		grade: {type: String, required: true},
+		interest: {type: Number, required: true},
+		difficulty: {type: Number, required: true},
+	}
+
+
+	],
+
+
+	
+
+
+});
+
+// const Message = new mongoose.Schema({
+//     message: {type: String},
+//     from: {type: String},
+//     gender: {type: String},
+// });
+
+
+// const Question = new mongoose.Schema({
+// 	username: {type: String},
+// 	firstname: {type: String},
+// 	lastname: {type: String},
+// 	year: {type: Number},
+// 	gpa: {type: Number},
+// 	major: {type: String},
+// 	hour: {type: String},
+// 	challenge: {type: String},
+// 	extra: {type: String},
+// 	subject1: {type: String},
+// 	subject2: {type: String},
+// 	subject3: {type: String},
+// })
 
 
 
@@ -119,9 +130,9 @@ List.plugin(URLSlugs('advice'));
 
 // register the schema so that mongoose know about it
 
-mongoose.model('Message', Message);
-mongoose.model("Comment", Comment);
-mongoose.model("List", List);
+// mongoose.model('Message', Message);
+// mongoose.model("Comment", Comment);
+// mongoose.model("List", List);
 mongoose.model("User", User);
 
 if (process.env.NODE_ENV === 'PRODUCTION'){

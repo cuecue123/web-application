@@ -13,58 +13,55 @@
 </head>
 
 <body>
-  <form>
-  <input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" required autofocus />
-  <label for="input-1">
+  <form  method = "POST" action = "">
+  	<input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" value = "{{firstname}}"required autofocus />
+  	<label for="input-1">
+  	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
     <span class = "label-text">First Name</span>
     <span class="nav-dot"></span>
-
     <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
-  </label>
-  <input id="input-2" type="text" name = "lastname" placeholder="Chen" required />
-  <label for="input-2">
+  	</label>
+  	
+  	<input id="input-2" type="text" name = "lastname" placeholder="Chen" value = "{{lastname}}"required />
+  	<label for="input-2">
     <span class="label-text">Last Name</span>
     <span class="nav-dot"></span>
-  </label>
-  <input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = 'year' placeholder="1" required />
+  	</label>
+  	
+  	<input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="1" value = "{{year}}" required/>
   <label for="input-3">
     <span class="label-text">School Year</span>
     <span class="nav-dot"></span>
   </label>
-  <input id="input-4" type="text" name = "gpa" placeholder="4.0" required />
+  <input id="input-4" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="4.0" value = "{{gpa}}" required />
   <label for="input-4">
     <span class="label-text">GPA</span>
     <span class="nav-dot"></span>
   </label>
-  <input id="input-5" type="text" name = "major" placeholder="Computer Science" required />
+  <input id="input-5" type="text" name = "major" placeholder="Computer Science" value = "{{major}}" required />
   <label for="input-5">
     <span class="label-text">Major</span>
     <span class="nav-dot"></span>
   </label>
 
-    <input id="input-6" type="text" name = "hour" placeholder="10" required />
+    <input id="input-6" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="10" value = "{{hour}}" required />
   <label for="input-6">
     <span class="label-text">Hours Studying Per Week</span>
     <span class="nav-dot"></span>
   </label>
 
-    <input id="input-7" pattern="[1-4]" name = "challenge" placeholder="1" required />  
+    <input id="input-7" pattern="[1-9]{1}|10" name = "challenge" placeholder="1" value = "{{challenge}}"  required />  
   <label for="input-7">
     <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
     <span class="nav-dot"></span>
   </label>
 
-<input id="input-8" type="text" name = "extra" placeholder="Yes" required />
+<input id="input-8" type="text" pattern = "(?:Yes|No)" name = "extra" placeholder="Yes" value = "{{extra}}" required />
   <label for="input-8">
     <span class="label-text">Are you only interested in courses in your major?</span>
     <span class="nav-dot"></span>
   </label>
 
-  <input id="input-9" type="text" name = "challenge" placeholder="1" required />
-  <label for="input-9">
-    <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
-    <span class="nav-dot"></span>
-  </label>
 
 
   <button type="submit">Create Your Account</button>
@@ -72,7 +69,17 @@
   <!-- <div class="signup-button">Create Your Student Profile</div> -->
 </form>
   
-    <script src="js/index.js"></script>
+<script src = "/js/jQuery-3.2.1.js" />
+<script>
 
+
+
+document.querySelector('input').addEventListener('keydown', function (e) {
+    if (e.which == 9) {
+        e.preventDefault();
+    }
+});
+
+</script>
 </body>
 </html>

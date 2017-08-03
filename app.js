@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 require('./db');
 const mongoose = require('mongoose');
-const Message = mongoose.model('Message');
+// const Message = mongoose.model('Message');
 // const Event = mongoose.model('Event');
 require('./auth');
 
@@ -55,8 +55,8 @@ app.get('/', (req, res)=>{
 app.get('/question', (req, res)=>{
 	if (req.user){
 		User.findOne({username: req.user.username}, function(err, user){
-			if (user.lastname && user.firstname && user.year && user.gpa && user.major){
-				res.render('filledIn', {layout:'navlayout',fm:user.firstname, lm:user.lastname, degree:user.year, grade:user.gpa, mj:user.major, time:user.hour, difficulty:user.challenge, other:user.extra, one:user.subject1, two:user.subject2, three:user.subject3});
+			if (user.lastname && user.firstname && user.year && user.gpa && user.major && user.challenge && user.hour && user.extra){
+				res.render('questions', {layout: 'navlayout', lastname: user.lastname, firstname: user.firstname, year: user.year, gpa: user.gpa, major: user.major, challenge: user.challenge, hour: user.hour, extra: user.extra });
 			}
 			else{
 				res.render('questions', {layout: 'navlayout'});
@@ -98,7 +98,7 @@ app.post('/', (req, res, next)=>{
 				});
 			} else{
 				console.log("entered");
-				res.render('notLoggedIn',  {layout: 'navlayout', message:'Your username or password is incorrect.'})
+				res.render('null',  {layout: 'notLoggedIn', message:'Your username or password is incorrect.'})
 			}
 		})(req, res, next);
 
@@ -141,39 +141,86 @@ app.get('/about', (req, res)=>{
 
 
 
+app.get("/success", (req,res)=>{
+	res.render("null", {layout: "success"});
+})
 
 
 
 
+app.get("/transcript", (req, res)=>{
+	if (req.user){
+
+	res.render('transcript', {layout:'navlayout'});
+	}
+	else{
+		res.redirect('/');
+	}
+
+});
 
 
+app.post('/transcript', (req, res)=>{
+	const student = req.user.username;
+	const courseName = req.body.class_name;
+	const professor = req.body.class_professor;
+	const grade = req.body.class_grade;
+	const interest = req.body.class_interest;
+	const difficulty = req.body.class_difficulty;
+
+
+	if (student){
+		User.findOneAndUpdate({username: student}, 
+			{$push: 
+				{"courses": 
+					{
+						courseName: courseName, 
+						professor: professor, 
+						grade: grade, 
+						interest: interest, 
+						difficulty: difficulty
+					}
+			}
+		},
+			{safe: true, upsert: true},
+			function(err, model){
+				console.log(err)
+			}
+		);
+
+		res.render('transcript', {layout: 'navlayout', message: 'Add Another Class'});
+	}
+	else{
+		res.redirect("/");
+	}
+
+	
+
+});
 
 
 app.post('/question', (req, res)=>{
 	const student = req.user.username;
 	const fm = req.body.firstname;
-	const lm = req.body.firstname;
+	const lm = req.body.lastname;
 	const degree = req.body.year;
 	const grade = req.body.gpa;
 	const mj = req.body.major;
 	const time = req.body.hour;
 	const difficulty = req.body.challenge;
 	const other = req.body.extra;
-	const one = req.body.subject1;
-	const two = req.body.subject2;
-	const three = req.body.subject3;
-	if (student && fm && lm && degree && grade && mj){
-		User.findOneAndUpdate({username: student},{$set:{firstname:fm, lastname:lm, year:degree, gpa:grade, major:mj, hour:time, challenge: difficulty, extra: other, subject1: one, subject2: two, subject3: three}}, (err, list)=>{
+	if (student && fm && lm && degree && grade && mj && time && difficulty && other){
+		User.findOneAndUpdate({username: student},{$set:{firstname:fm, lastname:lm, year:degree, gpa:grade, major:mj, hour:time, challenge: difficulty, extra: other}}, (err, list)=>{
 		
 		if (err){
-			res.send(err);
+			res.render('questions', {layout: 'navlayout', message: err});
 		}
-		res.render('filledin', {layout:'navlayout',fm:fm, lm:lm, degree:degree, grade:grade, mj:mj, time:time, difficulty:difficulty, other:other, one:one, two:two, three:three});
-
+		res.render('questions', {layout: 'navlayout', message: 'submit successfully'});
 	});	
 	}
 	else{
-	res.redirect("/question");
+	console.log(student, fm, lm, degree, grade, mj, time, difficulty, other)
+	res.render('questions', {layout: 'navlayout', message: 'Please fill in the missing information'});
 	}
 
 })

@@ -186,34 +186,22 @@ input:focus + label .nav-dot:before {
 
 
 label[for="input-1"] .nav-dot {
-  margin-top: -200px;
-}
-
-label[for="input-2"] .nav-dot {
-  margin-top: -175px;
-}
-
-label[for="input-3"] .nav-dot {
-  margin-top: -150px;
-}
-
-label[for="input-4"] .nav-dot {
   margin-top: -125px;
 }
 
-label[for="input-5"] .nav-dot {
+label[for="input-2"] .nav-dot {
   margin-top: -100px;
 }
 
-label[for="input-6"] .nav-dot {
+label[for="input-3"] .nav-dot {
   margin-top: -75px;
 }
 
-label[for="input-7"] .nav-dot {
+label[for="input-4"] .nav-dot {
   margin-top: -50px;
 }
 
-label[for="input-8"] .nav-dot {
+label[for="input-5"] .nav-dot {
   margin-top: -25px;
 }
 
