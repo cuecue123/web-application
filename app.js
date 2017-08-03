@@ -48,7 +48,7 @@ app.get('/', (req, res)=>{
 	else{
 		const user = req.user.username;
 		// res.render('home', {user:user, layout: 'nav'});
-		res.render('LoggedIn', {user: user, layout:'navlayout'});
+		res.redirect("/about");
 	}
 })
 

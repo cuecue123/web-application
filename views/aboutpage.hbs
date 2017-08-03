@@ -17,23 +17,25 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*padding-top: 100px;*/
+  z-index: -1000;
 
 }
 .bgimg-1 {
-  background-image: url("/img/arch.jpeg");
+  background-image: url("/img/waverly.jpeg");
+  position: relative;
   min-height: 100%;
 }
 
-.bgimg-2 {
-  background-image: url("/img/arch.jpeg");
-  min-height: 400px;
+ .transparent{
+    background-color: rgba(74, 79, 85, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.bgimg-3 {
-  background-image: url("/img/arch.jpeg");
-  min-height: 400px;
-}
+
 
 .caption {
   position: absolute;
@@ -41,14 +43,15 @@ body, html {
   top: 50%;
   width: 100%;
   text-align: center;
-  color: #000;
+  color: #fff;
 }
 
 .caption span.border {
-  background-color: #111;
+  /*background-color: #111;*/
   color: #fff;
+  font-weight: bolder;
   padding: 18px;
-  font-size: 25px;
+  font-size: 40px;
   letter-spacing: 10px;
 }
 
@@ -69,42 +72,28 @@ h3 {
 </head>
 <body>
 
-
+<div class="bgimg-1">
+  <div class = "transparent">
+  <div class="caption">
+    <span class="border">About Us</span>
+  </div>
+</div>
+</div>
 
 <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-  <h3 style="text-align:center;">About Us</h3>
-  <p> A typical university student will face the daunting task of choosing which classes to take, often with very limited data. Yet the quality of a class has a strong impact on their overall university experience. The professor is a significant factor in course satisfaction but finding data on a professor can be arduous. Popular sites like RateMyProfessor.com provide incomplete data from a self-selected group of students that have the willingness and motivation to write a review. Fortunately, many universities have internal course faculty evaluations (CFEs) that students fill out at the end of every semester which is of higher quality and quantity. But even with CFE data, students must simultaneously consider multiple variables such as time, difficulty, topic interest to make an optimal decision. </p>
+  <h3 style="text-align:center;">NYU Course Recommendation System</h3>
+  <p> A typical university student will face the daunting task of choosing which classes to take, often with very limited data. Yet the quality of a class has a strong impact on their overall university experience. The professor is a significant factor in course satisfaction but finding data on a professor can be arduous. Popular sites like RateMyProfessor.com provide incomplete data from a self-selected group of students that have the willingness and motivation to write a review. Fortunately, many universities have internal course faculty evaluations (CFEs) that students fill out at the end of every semester which is of higher quality and quantity. But even with CFE data, students must simultaneously consider multiple variables such as time, difficulty, topic interest to make an optimal decision. Given humans’ inherent difficulty in juggling multiple variables, students are primed to make bad decisions. They take classes that they later regret and could have avoided if only they had full knowledge of all of their options. Poor class choices are expensive in both tuition and time. This project aims to solve the problem of evaluating which class to take under limited and imperfect information by generating recommendations through predictive analytics models, ultimately proposing a better schedule than what the student would have generated otherwise.</p>
 </div>
 
-<div class="bgimg-2">
-  <div class="caption">
-    <!-- <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span> -->
+
+
+<div class="bgimg-1">
+  <div class="transparent">
+    <div class="caption">
+      <span class="border"></span>
+    </div>
   </div>
 </div>
-
-<div style="position:relative;">
-  <div style="color:#777;background-color:#fff;text-align:center;padding:50px 80px;text-align: justify;">
-    <p>Given humans’ inherent difficulty in juggling multiple variables, students are primed to make bad decisions. They take classes that they later regret and could have avoided if only they had full knowledge of all of their options. Poor class choices are expensive in both tuition and time. This project aims to solve the problem of evaluating which class to take under limited and imperfect information by generating recommendations through predictive analytics models, ultimately proposing a better schedule than what the student would have generated otherwise.</p>
-  </div>
-</div>
-
-<div class="bgimg-3">
-  <div class="caption">
-    <!-- <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span> -->
-  </div>
-</div>
-
-<!-- <div style="position:relative;">
-  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"> -->
-    <!-- <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p> -->
-  <!-- </div>
-</div> -->
-
-<!-- <div class="bgimg-1">
-  <div class="caption"> -->
-    <!-- <span class="border">COOL!</span> -->
-  <!-- </div>
-</div> -->
 
 </body>
 </html>

@@ -18,6 +18,7 @@ a{color:inherit;text-decoration:none}
 
 	position:relative;
 	background:url("/img/waverly.jpeg");
+	/*opacity: */
 	background-size: 1480px 1024px;
     background-repeat: no-repeat;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -36,7 +37,7 @@ a{color:inherit;text-decoration:none}
 #introduction{
 	width:100%;
 	height:100%;
-	background:rgba(169,169,169,.62);
+	background:rgba(170, 170, 170,.75);
 	font-size: 80px;
 	/*font-family: 'Gloria Hallelujah', cursive;*/
 	font-family: 'Josefin Sans', sans-serif;
