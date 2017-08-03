@@ -159,6 +159,28 @@ app.get("/transcript", (req, res)=>{
 
 });
 
+app.get('/profile', (req, res)=>{
+	
+	if (req.user){
+		User.findOne({username: req.user.username}, (err, user)=>{
+			if (user.firstname && user.lastname && user.year && user.gpa && user.major && user.hour && user.challenge && user.extra){
+				res.render('profile', {layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, message: "Your Profile is Complete"});
+
+			}
+			else{
+				res.redirect("/question");
+			}
+		})
+		
+	}
+	else{
+		res.redirect("/");
+	}
+})
+
+app.post('/profile', (req, res) =>{
+	res.redirect('/question');
+})
 
 app.post('/transcript', (req, res)=>{
 	const student = req.user.username;
@@ -199,6 +221,8 @@ app.post('/transcript', (req, res)=>{
 });
 
 
+
+
 app.post('/question', (req, res)=>{
 	const student = req.user.username;
 	const fm = req.body.firstname;
@@ -215,7 +239,7 @@ app.post('/question', (req, res)=>{
 		if (err){
 			res.render('questions', {layout: 'navlayout', message: err});
 		}
-		res.render('questions', {layout: 'navlayout', message: 'submit successfully'});
+		res.redirect('/profile');
 	});	
 	}
 	else{
@@ -224,7 +248,6 @@ app.post('/question', (req, res)=>{
 	}
 
 })
-
 
 
 

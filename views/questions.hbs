@@ -14,7 +14,7 @@
 
 <body>
   <form  method = "POST" action = "">
-  	<input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" value = "{{firstname}}"required autofocus />
+  	<input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" required autofocus />
   	<label for="input-1">
   	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
     <span class = "label-text">First Name</span>
@@ -22,41 +22,41 @@
     <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
   	</label>
   	
-  	<input id="input-2" type="text" name = "lastname" placeholder="Chen" value = "{{lastname}}"required />
+  	<input id="input-2" type="text" name = "lastname" placeholder="Chen" required />
   	<label for="input-2">
     <span class="label-text">Last Name</span>
     <span class="nav-dot"></span>
   	</label>
   	
-  	<input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="1" value = "{{year}}" required/>
+  	<input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="1" required/>
   <label for="input-3">
     <span class="label-text">School Year</span>
     <span class="nav-dot"></span>
   </label>
-  <input id="input-4" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="4.0" value = "{{gpa}}" required />
+  <input id="input-4" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="4.0" required />
   <label for="input-4">
     <span class="label-text">GPA</span>
     <span class="nav-dot"></span>
   </label>
-  <input id="input-5" type="text" name = "major" placeholder="Computer Science" value = "{{major}}" required />
+  <input id="input-5" type="text" name = "major" placeholder="Computer Science" required />
   <label for="input-5">
     <span class="label-text">Major</span>
     <span class="nav-dot"></span>
   </label>
 
-    <input id="input-6" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="10" value = "{{hour}}" required />
+    <input id="input-6" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="10" required />
   <label for="input-6">
     <span class="label-text">Hours Studying Per Week</span>
     <span class="nav-dot"></span>
   </label>
 
-    <input id="input-7" pattern="[1-9]{1}|10" name = "challenge" placeholder="1" value = "{{challenge}}"  required />  
+    <input id="input-7" pattern="[1-9]{1}|10" name = "challenge" placeholder="1" required />  
   <label for="input-7">
     <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
     <span class="nav-dot"></span>
   </label>
 
-<input id="input-8" type="text" pattern = "(?:Yes|No)" name = "extra" placeholder="Yes" value = "{{extra}}" required />
+<input id="input-8" type="text" pattern = "(?:Yes|No)" name = "extra" placeholder="Yes" required />
   <label for="input-8">
     <span class="label-text">Are you only interested in courses in your major?</span>
     <span class="nav-dot"></span>
@@ -65,7 +65,7 @@
 
 
   <button type="submit">Create Your Account</button>
-  <p class="tip">Press Tab</p>
+  <p class="tip">Press Enter</p>
   <!-- <div class="signup-button">Create Your Student Profile</div> -->
 </form>
   
