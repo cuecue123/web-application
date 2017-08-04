@@ -6,8 +6,6 @@ var bodyParser = require('body-parser');
 var app = express();
 require('./db');
 const mongoose = require('mongoose');
-// const Message = mongoose.model('Message');
-// const Event = mongoose.model('Event');
 require('./auth');
 
 app.set('views', path.join(__dirname, 'views'));
