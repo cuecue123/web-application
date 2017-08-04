@@ -78,7 +78,7 @@ app.post('/', (req, res, next)=>{
 			User.register(new User({username: req.body.username}),
 		req.body.password, function(err, user){
 			if(err){
-				res.render('null', {layout: 'NotSignedUp', message: 'Your registration information is not valid'})
+				res.render('null', {layout: 'notLoggedIn', message: 'Your registration information is not valid'})
 			} else{
 				passport.authenticate('local')(req, res, function(){
 					res.redirect('/about');
