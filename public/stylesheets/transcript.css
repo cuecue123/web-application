@@ -105,7 +105,7 @@ input:focus + label .nav-dot:before {
           transform: translate(-50%, -50%);
   width: 70%;
   opacity: 0;
-  color: #fff;
+  color: #000;
   font-size: .875rem;
   font-weight: 300;
   letter-spacing: .125rem;

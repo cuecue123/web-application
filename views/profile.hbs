@@ -1,74 +1,135 @@
-
 <!DOCTYPE html>
 <html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Interactive Form</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<head>
+  <meta charset="UTF-8">
+  <title>NYU Course Recommendation System</title>
+  
+  
+  
+      <link rel="stylesheet" href="stylesheets/profileStyle.css">
+
+  
+</head>
+
+<body>
+  <div id="container">
+  <h1 style = "color: #885EAD; margin-top: 2em;">&bull; User Profile &bull;</h1>
+  <div class="underline">
+  </div>
+
+  <form action="#" method="post" id="contact_form">
+    <div class="name">
+      <label for="name"> FIRST NANE</label>
+      <input type="text" placeholder="{{firstname}}" name="name" id="name_input" readonly>
+    </div>
+    <div class="name">
+      <label for="name">LAST NAME</label>
+      <input type="text" placeholder="{{lastname}}" name="email" id="email_input" readonly>
+    </div>
+    <div class="name">
+      <label for="name">SCHOOL YEAR</label>
+      <input type="text" placeholder="{{year}}" name="telephone" id="telephone_input" readonly>
+    </div>
+    <div class="name">
+      <label for="subject">GPA</label>
+      <input type = "text" placeholder="{{gpa}}" name="subject" id="subject_input" readonly>
+      
+    </div>
+
+        <div class="name">
+      <label for="subject">MAJOR</label>
+      <input type = "text" placeholder="{{major}}" name="subject" id="subject_input" readonly>
+      
+    </div>
+
+        <div class="name">
+      <label for="subject">HOUR STUDYING</label>
+      <input type = "text" placeholder="{{hour}}" name="subject" id="subject_input" readonly>
+      
+    </div>
+
+
+        <div class="name">
+      <label for="subject">DIFFICULTY PREFERENCE</label>
+      <input type = "text" placeholder="{{challenge}}" name="subject" id="subject_input" readonly>
+      
+    </div>
+
+
+    <div class="name">
+      <label for="subject">NON-MAJOR INTEREST</label>
+      <input type = "text" placeholder="{{extra}}" name="subject" id="subject_input" readonly>
+      
+    </div>
+
+    <div class="submit" style = "text-align: right; padding-right: 3%;">
+      <a href="/question" type="submit" id="form_button" style="text-decoration: none">MAKE CHANGES</a>
+    </div>
+
+  <hr style="border-top: 3px double #885EAD;">
+
+
+  <h1 style="color: #885EAD; margin-top: 2em;">&bull; Transcript &bull;</h1>
+    <div class="underline" style="margin-bottom: 3.5em; "></div>
+
+
+    {{#each courses}}
+    <div class = "courseEv">
+      <div class="name">
+        <label for="subject">COURSE CODE</label>
+        <input type = "text" placeholder="{{this.courseName}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+      
+
+      <div class="name">
+        <label for="subject">PROFESSOR</label>
+        <input type = "text" placeholder="{{this.professor}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+
+            <div class="name">
+        <label for="subject">GRADE</label>
+        <input type = "text" placeholder="{{this.grade}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+
+            <div class="name">
+        <label for="subject">INTEREST</label>
+        <input type = "text" placeholder="{{this.interest}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+
+      <div class="name" style="padding-bottom: 3em;">
+        <label for="subject">DIFFICULTY</label>
+        <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+
+      <hr style="clear: left; border-color: #885EAD; opacity: 0.5;">
+
+    </div>
+    {{/each}}
+
+      
+
+
+
+
+    <div class="submit" style = "text-align: right; padding-right: 3%;">
+      <a href="/transcript" type="submit" id="form_button" style="text-decoration: none">ADD COURSES</a>
+    </div>
+  </form><!-- // End form -->
+</div><!-- // End #container -->
+ <!--  <script>
+  var transcript = document.body.getElementById("courses");
+  var childDiv = document.createElement('div');
+
+
+
 
     
-        <link rel="stylesheet" href="stylesheets/profile.css">
-
-    
-  </head>
-  <body>
-    
-
-    <form>
-      <input id="input-1" type="text" placeholder="{{firstname}}" autofocus readonly />
-      <label for="input-1">
-      <span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
-        <span class="label-text">First Name</span>
-        <span class="nav-dot"></span>
-      </label>
-      <input id="input-2" type="text" placeholder="{{lastname}}" readonly />
-      <label for="input-2">
-        <span class="label-text">Last name</span>
-        <span class="nav-dot"></span>
-      </label>
-      <input id="input-3" type="text" placeholder="{{year}}" readonly />
-      <label for="input-3">
-        <span class="label-text">School Year</span>
-        <span class="nav-dot"></span>
-      </label>
-      <input id="input-4" type="text" placeholder="{{gpa}}" readonly />
-      <label for="input-4">
-        <span class="label-text">GPA</span>
-        <span class="nav-dot"></span>
-      </label>
-      <input id="input-5" type="text" placeholder="{{major}}" readonly />
-      <label for="input-5">
-        <span class="label-text">Major</span>
-        <span class="nav-dot"></span>
-      </label>
-
-        <input id="input-6" type="text" placeholder="{{hour}}" readonly />
-        <label for="input-6">
-          <span class="label-text">Hours Studying Per Week</span>
-          <span class="nav-dot"></span>
-        </label>
-
-
-         <input id="input-7" placeholder="{{challenge}}" readonly />  
-        <label for="input-7">
-          <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
-          <span class="nav-dot"></span>
-        </label>
-
-
-
-        <input id="input-8" type="text" placeholder="{{extra}}" readonly />
-        <label for="input-8">
-          <span class="label-text">Are you only interested in courses in your major?</span>
-          <span class="nav-dot"></span>
-        </label>
-         <p class="tip">Press Tab To View</p>
-      </form>
-       <form method = "POST" action="">   
-          <button id = "input-9" type="submit">Make Changes to Your Profile</button>
-
-    </form>
-
-  </body>
+  </script> -->
+  
+</body>
 </html>

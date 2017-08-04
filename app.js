@@ -163,13 +163,12 @@ app.get('/profile', (req, res)=>{
 	
 	if (req.user){
 		User.findOne({username: req.user.username}, (err, user)=>{
-			if (user.firstname && user.lastname && user.year && user.gpa && user.major && user.hour && user.challenge && user.extra){
-				res.render('profile', {layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, message: "Your Profile is Complete"});
+			
+				res.render('profile', {layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
 
-			}
-			else{
-				res.redirect("/question");
-			}
+			
+
+			
 		})
 		
 	}
@@ -243,7 +242,6 @@ app.post('/question', (req, res)=>{
 	});	
 	}
 	else{
-	console.log(student, fm, lm, degree, grade, mj, time, difficulty, other)
 	res.render('questions', {layout: 'navlayout', message: 'Please fill in the missing information'});
 	}
 
