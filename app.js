@@ -56,7 +56,12 @@ app.get('/question', (req, res)=>{
 	if (req.user){
 		User.findOne({username: req.user.username}, function(err, user){
 			if (user.lastname && user.firstname && user.year && user.gpa && user.major && user.challenge && user.hour && user.extra){
-				res.render('fillinquestions', {layout: 'navlayout', lastname: user.lastname, firstname: user.firstname, year: user.year, gpa: user.gpa, major: user.major, challenge: user.challenge, hour: user.hour, extra: user.extra });
+				var gpa = user.gpa;
+				if (gpa == "4" ||  gpa == "3" || gpa == "2" || gpa == "1" || gpa == "0"){
+					gpa = gpa + ".0";
+
+				}
+				res.render('fillinquestions', {layout: 'navlayout', lastname: user.lastname, firstname: user.firstname, year: user.year, gpa: gpa, major: user.major, challenge: user.challenge, hour: user.hour, extra: user.extra });
 			}
 			else{
 				res.render('questions', {layout: 'navlayout'});
@@ -140,10 +145,6 @@ app.get('/about', (req, res)=>{
 
 
 
-
-app.get("/success", (req,res)=>{
-	res.render("null", {layout: "success"});
-})
 
 
 
