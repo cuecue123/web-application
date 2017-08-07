@@ -229,7 +229,7 @@ app.post('/profile', (req, res) =>{
 	// 		console.log(messager[2]);
 	User.findOneAndUpdate(
 	  { username: req.user.username},
-	  {$pull: { courses: {courseName: req.user.courses[0].courseName} } },
+	  {$pull: { courses: {courseName: req.user.courses[deleteBtn].courseName} } },
 	  function removeConnection(err, user){
 		// res.render('profile',{layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
 		res.redirect('/profile');
