@@ -216,9 +216,40 @@ app.post('/profile', (req, res) =>{
 	
 	// const deleteIndex = req.body.submit;
 	// console.log(deleteIndex);
-	const info = User.find{{username: req.user.username}, {courses: {$slice: [deleteBtn, 1]}}}
-	res.render('profile',{layout: 'navlayout', deleteBtn: deleteBtn, info: info.courseName});
+
+	// const unsetIndex = "courses."+(deleteBtn);
+	// User.update({username: req.user.username}, {'$' : {unsetIndex : 1 }});
+	// User.findOneAndUpdate({username: req.user.username}, {$pull : {"courses" : null}})
 	
+ // 	User.update({username: req.user.username}, {$unset: {"courses.0": 1}})
+	// User.update({username: req.user.username}, {$pull: {"courses": null}})
+	// var messager = User.find({username: req.user.username},  {courses: {$slice: [-1,1] }});
+	// console.log(messager[0]);
+	// 	console.log(messager[1]);
+	// 		console.log(messager[2]);
+	User.findOneAndUpdate(
+	  { username: req.user.username},
+	  {$pull: { courses: {courseName: req.user.courses[0].courseName} } },
+	  function removeConnection(err, user){
+		// res.render('profile',{layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
+		res.redirect('/profile');
+	  }
+	);
+
+
+	// User.findOne({username: req.user.username}, (err, user)=>{
+	// 	var removeContent = user.courses[0].courseName;
+	// 	console.log(removeContent);
+	// 	// User.update({username: req.username}, {$pull, {'courses': {'courseName': removeContent}}});
+	// 	User.update(
+	//   { username: req.user.username},
+	//   { '$pull': { 'courses.courseName': removeContent } }
+	// );
+
+	// 	console.log(user.courses[0]);
+	// 	res.render('profile',{layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
+
+	// });
 })
 
 app.post('/transcript', (req, res)=>{
