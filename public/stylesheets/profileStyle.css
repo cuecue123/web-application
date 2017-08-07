@@ -130,9 +130,10 @@ label{
 
 
 .addCourse{
-  width: 50%;
-  padding-left:25%;
-  padding-right: 2%;
+  width: 70%;
+  position: relative;
+  padding-left:28%;
+  padding-right: 0%;
 
   }
 
