@@ -214,19 +214,6 @@ app.get('/profile', (req, res)=>{
 app.post('/profile', (req, res) =>{
 	const deleteBtn = req.body.submit;
 	
-	// const deleteIndex = req.body.submit;
-	// console.log(deleteIndex);
-
-	// const unsetIndex = "courses."+(deleteBtn);
-	// User.update({username: req.user.username}, {'$' : {unsetIndex : 1 }});
-	// User.findOneAndUpdate({username: req.user.username}, {$pull : {"courses" : null}})
-	
- // 	User.update({username: req.user.username}, {$unset: {"courses.0": 1}})
-	// User.update({username: req.user.username}, {$pull: {"courses": null}})
-	// var messager = User.find({username: req.user.username},  {courses: {$slice: [-1,1] }});
-	// console.log(messager[0]);
-	// 	console.log(messager[1]);
-	// 		console.log(messager[2]);
 	User.findOneAndUpdate(
 	  { username: req.user.username},
 	  {$pull: { courses: {courseName: req.user.courses[deleteBtn].courseName} } },
