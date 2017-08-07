@@ -88,7 +88,7 @@ input[type='text'], [type='email'], select, textarea {
   letter-spacing: 1px;
 	margin: 0em 0 1.875em 0;
 	padding: 0 0 0.875em 0;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -127,6 +127,14 @@ label{
 	width: 50%;
   padding: 3%;
 }
+
+
+.addCourse{
+  width: 50%;
+  padding-left:25%;
+  padding-right: 2%;
+
+  }
 
 
 
@@ -218,11 +226,28 @@ hr{
   }
 }
 
+@media screen and (max-width: 600px) {
+
+  h1{
+    font-size: 20px;
+  }
+  #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+  label{
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 26px;
+    font-size: 20px;
   }
   
+  label{
+    font-size: 13px;
+  }
   .underline {
     width: 68px;
   }
@@ -235,6 +260,9 @@ hr{
 @media screen and (max-width: 420px) {
   h1 {
     font-size: 18px;
+  }
+  label{
+    font-size: 10px;
   }
   
   .icon {

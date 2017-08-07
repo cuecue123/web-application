@@ -76,6 +76,41 @@ app.get('/question', (req, res)=>{
 
 })
 
+app.get('/recommend', (req, res) =>{
+	if (req.user){
+		if (req.user.challenge){
+			res.render('recommend', {layout: "navlayout"});
+
+		}
+		else{
+			res.redirect('/question');
+		}
+		
+	}
+	else{
+		res.redirect('/');
+	}
+
+})
+
+
+app.post('/recommend', (req, res) =>{
+
+	const firstClass = req.body.name;
+	const secondClass = req.body.name1;
+	const thirdClass = req.body.name2;
+	const fourthClass = req.body.name3;
+	const fifthClass = req.body.name4;
+
+
+	User.findOne({username: req.user.username},function(err, user){
+		res.render('result', {layout: 'navlayout', challenge: user.challenge, f1: firstClass, f2: secondClass, f3: thirdClass, f4: fourthClass, f5: fifthClass})
+	})
+
+
+
+})
+
 app.post('/', (req, res, next)=>{
 	if (req.body.check == "true"){
 			User.register(new User({username: req.body.username}),
@@ -177,7 +212,13 @@ app.get('/profile', (req, res)=>{
 })
 
 app.post('/profile', (req, res) =>{
-	res.redirect('/question');
+	const deleteBtn = req.body.submit;
+	
+	// const deleteIndex = req.body.submit;
+	// console.log(deleteIndex);
+	const info = User.find{{username: req.user.username}, {courses: {$slice: [deleteBtn, 1]}}}
+	res.render('profile',{layout: 'navlayout', deleteBtn: deleteBtn, info: info.courseName});
+	
 })
 
 app.post('/transcript', (req, res)=>{

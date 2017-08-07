@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NYU Course Recommendation System</title>
+  
+  
+  
+      <link rel="stylesheet" href="stylesheets/profileStyle.css">
+</head>
+<body>
+
+
+
+<div id="container">
+  <h1 style = "color: #885EAD; margin-top: 2em;">&bull; SCHEDULE &bull;</h1>
+  <div class="underline">
+  </div>
+
+  <form>
+
+
+   <div id = "classList">
+    <div class="addCourse" style="clear: float;">
+      <label for="name" id = "label1"></label>
+      <input type = "hidden" placeholder = "" name="name" id="class1" />
+      </div>
+    </div>
+
+ <div id = "classList">
+    <div class="addCourse" style="clear: float;">
+      <label for="name" id = "label2"></label>
+      <input type="hidden" placeholder="" name="name" id="class2" readonly />
+      </div>
+    </div>
+
+
+
+ <div id = "classList">
+    <div class="addCourse" style="clear: float;">
+      <label for="name" id = "label3"></label>
+      <input type="hidden" placeholder="" name="name" id="class3" readonly />
+      </div>
+    </div>
+
+
+
+ <div id = "classList">
+    <div class="addCourse" style="clear: float;">
+      <label for="name" id = "label4"></label>
+      <input type="hidden" placeholder="" name="name" id="class4" readonly />
+      </div>
+    </div>
+
+
+ <div id = "classList">
+    <div class="addCourse" style="clear: float;">
+      <label for="name" id = "label5"></label>
+      <input type="hidden" placeholder="" name="name" id="class5" readonly />
+      </div>
+    </div>
+
+
+    <div class="submit" style = "text-align: right; padding-right: 3%;">
+      <a href="/recommend" type="submit" id="form_button" style="text-decoration: none">NEW SCHEDULE</a>
+    </div>
+
+  </form><!-- // End form -->
+<!-- 
+      <div style = "text-align: right; padding-right: 3%;">
+      <button onclick = "add()" id="form_button" style = "margin-bottom: 5%;  width: 180px;">ADD COURSE</button>
+    </div>
+ -->
+
+
+      
+</div><!-- // End #container -->
+
+
+<script src = "data.json"></script>
+<script>
+
+function load(classId, labelId,  courses, difficulty){
+	// 
+	var mydata = JSON.parse(data);
+	// console.log(mydata[0]);
+	// var mydata = data.map(JSON.stringify);
+
+
+
+	//find all instances of the class being taught in the array
+	//if only one instance return that instance
+	//if multiple calculate euclidean distance for ea and return lowest distance
+	var correctClasses = [];
+	var userDifficulty = difficulty/2;
+	var maxInterest = -1;
+	var selectedClass = courses;
+
+	for (i = 0; i < mydata.length; i ++){
+		// alert(mydata[0].COURSENAME);
+		// console.log(mydata[0].COURSENAME);
+
+		    if (mydata[i].COURSENAME == selectedClass){
+	    	// console.log('hello');
+	        // correctClasses.push([i, mydata[i]]);
+	        var course = mydata[i];
+	        console.log(course.COURSENAME);
+	        correctClasses.push(course);
+	        // console.log(correctClasses[0].COURSENAME);
+
+	        
+	        // alert(correctClasses[i].COURSENAME)
+	        // console.log(correctClasses[i].COURSENAME);
+	    }
+	}
+
+	if (correctClasses.length == 0){
+		var result = 'CLASS NOT FOUND';
+		document.getElementById(labelId).innerHTML = courses;
+
+		document.getElementById(classId).setAttribute("placeholder", result);
+
+		document.getElementById(classId).setAttribute('type', 'text');
+	}
+	else if (correctClasses.length == 1){
+	    var result = correctClasses[0].PROFESSOR;
+
+
+	 	document.getElementById(classId).setAttribute("placeholder", result);
+	   	document.getElementById(classId).setAttribute('type', 'text');
+
+	   	// document.getElementById(classId).readOnly = true;
+	   	document.getElementById(labelId).innerHTML = correctClasses[0].COURSENAME;
+	}
+	    
+	else {
+	    var highestInterest = 0;
+	    var highestDifficult = 0;
+	    for (i = 0; i < correctClasses.length; i ++){
+	        if (correctClasses[i].DIFFICULTY > highestDifficult){
+	            highestDifficult = correctClasses[i].DIFFICULTY;
+	     	}
+	        if (correctClasses[i].INTEREST > highestInterest){
+	            highestInterest = correctClasses[i].INTEREST;
+	            maxInterest = highestInterest;
+	        }
+	    }
+	    
+	    for (i = 0; i < correctClasses.length; i ++){
+	        correctClasses[i].DIFFICULTY /= highestDifficult;
+	        correctClasses[i].INTEREST /= highestInterest;
+	    }
+	    
+	    var euclideanDistance = [];
+	    
+	    for (i = 0; i < correctClasses.length; i ++){
+	        var difficultDifference = Math.pow(correctClasses[i].DIFFICULTY - userDifficulty, 2);
+	        var interestDifference = Math.pow(correctClasses[i].INTEREST - maxInterest, 2);
+	        var distance = Math.sqrt(difficultDifference+interestDifference);
+	        euclideanDistance.push(distance);
+	       
+	    
+
+	    }
+	    
+	    var leastDistance = 100000;
+	    var leastDistanceIndex = -1;
+
+	    for (i = 0; i < euclideanDistance.length; i ++){
+	        if (euclideanDistance[i] < leastDistance) {
+	            leastDistance = euclideanDistance[i];
+	            leastDistanceIndex = i;
+	        }
+	    }
+	   console.log(correctClasses[leastDistanceIndex].PROFESSOR);
+	    
+	   var result = correctClasses[leastDistanceIndex].PROFESSOR;
+	   console.log(result);
+	   	// document.getElementById(classId)[0].placeholder = result;
+	  
+
+	 	document.getElementById(classId).setAttribute("placeholder", result);
+	   	document.getElementById(classId).setAttribute('type', 'text');
+
+	   	// document.getElementById(classId).readOnly = true;
+	   	console.log(course.COURSENAME)
+	   	document.getElementById(labelId).innerHTML = course.COURSENAME;
+
+	    
+	}
+
+
+
+
+}
+
+
+{{#if f1}}
+load('class1', 'label1', "{{f1}}", "{{challenge}}");
+{{/if}}
+
+{{#if f2}}
+load('class2', 'label2', "{{f2}}", "{{challenge}}");
+{{/if}}
+
+{{#if f3}}
+load('class3', 'label3', "{{f3}}", "{{challenge}}");
+{{/if}}
+
+{{#if f4}}
+load('class4', 'label4', "{{f4}}", "{{challenge}}");
+{{/if}}
+
+{{#if f5}}
+load('class5', 'label5', "{{f5}}", "{{challenge}}");
+{{/if}}
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

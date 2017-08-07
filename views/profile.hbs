@@ -16,8 +16,9 @@
   <h1 style = "color: #885EAD; margin-top: 2em;">&bull; User Profile &bull;</h1>
   <div class="underline">
   </div>
-
-  <form action="#" method="post" id="contact_form">
+{{deleteBtn}}
+{{info}}
+  <form method="POST" action="">
     <div class="name">
       <label for="name"> FIRST NANE</label>
       <input type="text" placeholder="{{firstname}}" name="name" id="name_input" readonly>
@@ -106,6 +107,13 @@
         
       </div>
 
+
+      <div style="text-align: right; padding-right: 3%;">
+  
+        <button name = "submit" type="submit" value = "{{@index}}">BUTTON</button>
+        
+      </div>
+
       <hr style="clear: left; border-color: #885EAD; opacity: 0.5;">
 
     </div>
@@ -121,15 +129,12 @@
     </div>
   </form><!-- // End form -->
 </div><!-- // End #container -->
- <!--  <script>
-  var transcript = document.body.getElementById("courses");
-  var childDiv = document.createElement('div');
+  <script>
 
 
 
-
-    
-  </script> -->
+        
+  </script>
   
 </body>
 </html>

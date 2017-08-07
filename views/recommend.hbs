@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>NYU Course Recommendation System</title>
+  
+  
+  
+      <link rel="stylesheet" href="stylesheets/profileStyle.css">
+
+  
+</head>
+
+<body>
+  <div id="container">
+  <h1 style = "color: #885EAD; margin-top: 2em;">&bull; Recommendation &bull;</h1>
+  <div class="underline">
+  </div>
+
+  <form action = "" method = "POST">
+    <div id = "classList">
+      <div class="addCourse" style="clear: float;">
+        <label for="name">COURSE NAME</label>
+        <input type="text" placeholder="" name="name" id="name_input" required />
+      </div>
+    </div>
+
+
+    <div style = "text-align: right; padding-right: 3%;">
+      <input type = "submit" id="form_button" value = "GET SCHEDULE" style="float: right; margin-right: -20px; width: 180px; text-align: center;" />
+    </div>
+
+
+  </form><!-- // End form -->
+
+      <div style = "text-align: right; padding-right: 3%;">
+      <button onclick = "add()" id="form_button" style = "margin-bottom: 5%;  width: 180px;">ADD COURSE</button>
+    </div>
+
+
+
+      
+</div><!-- // End #container -->
+  <script>
+
+  var count = 0;
+
+  function add(){
+
+    if (count < 4){
+      count ++;
+      console.log('hello');
+      var parent = document.getElementById('classList');
+      var child = document.createElement('div');
+      child.setAttribute('class', 'addCourse');
+      var labels = document.createElement('label');
+      var inputs = document.createElement('input');
+      labels.setAttribute('for', 'name');
+      inputs.setAttribute('type','text');
+      let inputName = 'name'+count;
+      inputs.setAttribute( 'name',inputName);
+      inputs.setAttribute( 'id','name_input');
+
+      child.appendChild(labels);
+      child.appendChild(inputs);
+      parent.appendChild(child);
+
+    }
+
+  
+
+  }
+
+
+
+  
+
+    
+  </script>
+  
+</body>
+</html>

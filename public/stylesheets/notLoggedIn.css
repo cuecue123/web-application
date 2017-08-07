@@ -123,6 +123,7 @@ a{color:inherit;text-decoration:none}
 	width:100%;
 	color:#fff;
 	display:block;
+	caret-color: #fff;
 }
 
 .login-form .group .button{
