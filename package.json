@@ -10,7 +10,7 @@
     "type": "git",
    
   },
-  "author": "Qiuxuan Chen",
+  "author": "Qiuxuan Chen & Brandon",
   "license": "ISC",
   "dependencies": {
     "create-react-app": "^1.3.0",
