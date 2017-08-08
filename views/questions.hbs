@@ -1,84 +1,150 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>NYU Course Recommendation System</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>NYU Course Recommendation System</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/questions.css">
+    <link rel="stylesheet" href="autocomplete/awesomplete.css">
+  </head>
 
-  
-      <link rel="stylesheet" href="stylesheets/questions.css">
+  <body>
+    <form  method = "POST" action = "">
+    	<input id="input-1" oninvalid= "checkValid( 'Please enter your first name', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" name = "firstname" placeholder="Qiuxuan" autocomplete = "off" required autofocus />
+    	<label for="input-1">
+    	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
+      <span class = "label-text">First Name</span>
+      <span class="nav-dot"></span>
+    	</label>
+    	
+    	<input id="input-2" oninvalid= "checkValid( 'Please enter your last name', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" name = "lastname" placeholder="Chen" autocomplete = "off" required />
+    	<label for="input-2">
+      <span class="label-text">Last Name</span>
+      <span class="nav-dot"></span>
+    	</label>
+    	
+    	<input id="input-3" oninvalid= "checkValid( 'Please enter a number between 1 and 4', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="1" autocomplete = "off" required/>
+      <label for="input-3">
+        <span class="label-text">School Year</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-4" oninvalid= "checkValid( 'Please enter a valid GPA', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="4.0" autocomplete = "off" required />
+      <label for="input-4">
+        <span class="label-text">GPA</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-5" list = "mylist" pattern = "(ACE)|(AHSEM)|(ALHAM)|(ANST)|(ANTH)|(ARTH)|(ASPP)|(BIOL)|(CAMS)|(CHEM)|(CINE)|(CLAS)|(COLI)|(CORE)|(CRWRI)|(CSCI)|(DRLIT)|(EAST)|(ECON)|(ENGL)|(ENVST)|(EURO)|(EXPOS)|(FREN)|(FRSEM)|(GERM)|(HBRJD)|(HIST)|(IDSEM)|(INTRL)|(IRISH)|(ITAL)|(JOUR)|(LING)|(LWSOC)|(MATH)|(MEDI)|(MEIS)|(MUSIC)|(NEURL)|(NODEP)|(PERF-UT)|(PHIL)|(PHTI)|(PHYS)|(POL)|(PORT)|(PSYCH)|(RELST)|(RUSSN)|(SCA)|(SCAI-UF)|(SOC)|(SOCED)|(SPAN)|(THEA-UT)|(UGPH-GU)"oninvalid= "checkValid( 'Please enter a valid Major', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" name = "major" placeholder="Major Code" required/>
+      <datalist id = "mylist">
+        <option>ACE</option>
+        <option>AHSEM</option>
+        <option>ALHAM</option>
+        <option>ANST</option>
+        <option>ANTH</option>
+        <option>ARTH</option>
+        <option>ASPP</option>
+        <option>BIOL</option>
+        <option>CAMS</option>
+        <option>CHEM</option>
+        <option>CINE</option>
+        <option>CLAS</option>
+        <option>COLI</option>
+        <option>CORE</option>
+        <option>CRWRI</option>
+        <option>CSCI</option>
+        <option>DRLIT</option>
+        <option>EAST</option>
+        <option>ECON</option>
+        <option>ENGL</option>
+        <option>ENVST</option>
+        <option>EURO</option>
+        <option>EXPOS</option>
+        <option>FREN</option>
+        <option>FRSEM</option>
+        <option>GERM</option>
+        <option>HBRJD</option>
+        <option>HIST</option>
+        <option>IDSEM</option>
+        <option>INTRL</option>
+        <option>IRISH</option>
+        <option>ITAL</option>
+        <option>JOUR</option>
+        <option>LING</option>
+        <option>LWSOC</option>
+        <option>MATH</option>
+        <option>MEDI</option>
+        <option>MEIS</option>
+        <option>MUSIC</option>
+        <option>NEURL</option>
+        <option>NODEP</option>
+        <option>PERF-UT</option>
+        <option>PHIL</option>
+        <option>PHTI</option>
+        <option>PHYS</option>
+        <option>POL</option>
+        <option>PORT</option>
+        <option>PSYCH</option>
+        <option>RELST</option>
+        <option>RUSSN</option>
+        <option>SCA</option>
+        <option>SCAI-UF</option>
+        <option>SOC</option>
+        <option>SOCED</option>
+        <option>SPAN</option>
+        <option>THEA-UT</option>
+        <option>UGPH-GU</option>
+        
+      </datalist>
 
-  
-</head>
 
-<body>
-  <form  method = "POST" action = "">
-  	<input id="input-1" type="text" name = "firstname" placeholder="Qiuxuan" required autofocus />
-  	<label for="input-1">
-  	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;">{{message}}</span>
-    <span class = "label-text">First Name</span>
-    <span class="nav-dot"></span>
-    <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
-  	</label>
-  	
-  	<input id="input-2" type="text" name = "lastname" placeholder="Chen" required />
-  	<label for="input-2">
-    <span class="label-text">Last Name</span>
-    <span class="nav-dot"></span>
-  	</label>
-  	
-  	<input id="input-3" type="text" pattern = "[1-4]{1}" title = "Please only enter a value between 1-4" name = "year" placeholder="1" required/>
-  <label for="input-3">
-    <span class="label-text">School Year</span>
-    <span class="nav-dot"></span>
-  </label>
-  <input id="input-4" type="text" pattern = "(([0-3]\.[0-9][0-9]*)|(4.0))" name = "gpa" placeholder="4.0" required />
-  <label for="input-4">
-    <span class="label-text">GPA</span>
-    <span class="nav-dot"></span>
-  </label>
-  <input id="input-5" type="text" name = "major" placeholder="Computer Science" required />
-  <label for="input-5">
-    <span class="label-text">Major</span>
-    <span class="nav-dot"></span>
-  </label>
-
-    <input id="input-6" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="10" required />
-  <label for="input-6">
-    <span class="label-text">Hours Spent Studying Per Week</span>
-    <span class="nav-dot"></span>
-  </label>
-
-    <input id="input-7" pattern="[1-9]{1}|10" name = "challenge" placeholder="1" required />  
-  <label for="input-7">
-    <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
-    <span class="nav-dot"></span>
-  </label>
-
-<input id="input-8" type="text" pattern = "(([Yy][Ee][Ss])|([Nn][Oo]))" name = "extra" placeholder="Yes" required />
-  <label for="input-8">
-    <span class="label-text">Are you interested non-major courses?</span>
-    <span class="nav-dot"></span>
-  </label>
+      <label for="input-5">
+        <span class="label-text">Major Code</span>
+        <span class="nav-dot"></span>
+      </label>
 
 
+      <input id="input-6" oninvalid= "checkValid( 'Please enter a valid number between 0 and 168', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" pattern = "[0-9]|[1-9][0-9]|1[0-5][0-9]|1[6][0-8]" name = "hour" placeholder="10" autocomplete = "off" required />
+      <label for="input-6">
+        <span class="label-text">Hours Spent Studying Per Week</span>
+        <span class="nav-dot"></span>
+      </label>
 
-  <button type="submit" >Create Your Account</button>
-  <p class="tip">Press Enter</p>
-  <!-- <div class="signup-button">Create Your Student Profile</div> -->
-</form>
-  
-<script>
+      <input id="input-7" oninvalid= "checkValid( 'Please enter a valid number between 1 and 10', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" pattern="[1-9]{1}|10" name = "challenge" autocomplete = "off" placeholder="1" required />  
+      <label for="input-7">
+        <span class="label-text">On a scale from 1-10, how difficult do you like your classes to be?</span>
+        <span class="nav-dot"></span>
+      </label>
 
+      <input id="input-8" oninvalid= "checkValid( 'Please enter YES or NO', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" type="text" pattern = "(([Yy][Ee][Ss])|([Nn][Oo]))" name = "extra" placeholder="Yes" autocomplete = "off" required />
+      <label for="input-8">
+        <span class="label-text">Are you interested non-major courses?</span>
+        <span class="nav-dot"></span>
+      </label>
+      <button type="submit" >Create Your Account</button>
+      <p class="tip">Press Enter</p>
+    </form>
+    <script>
 
+      function stopTab( e ) {
+          var evt = e || window.event
+          if ( evt.keyCode === 9 ) {
+              return false
+          }
+      }
 
-// document.querySelector('input').addEventListener('keydown', function (e) {
-//     if (e.which == 9) {
-//         e.preventDefault();
-//     }
-// });
+      function checkValid(message, id){
+          console.log('entered');
+          console.log(id);
+          let selectElement = document.getElementById(id);
+          if (selectElement.value != ""){
+            selectElement.setCustomValidity(message);
+          }
+          else {
+            selectElement.setCustomValidity(" ");
+          }
 
-</script>
-</body>
+       }
+
+    </script>
+  </body>
 </html>

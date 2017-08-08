@@ -86,6 +86,7 @@ button:focus ~ .signup-button {
   opacity: 0;
 }
 
+
 input:focus + label .label-text {
   opacity: 1;
   -webkit-transform: translate(-50%, -100%);
@@ -158,6 +159,26 @@ input:focus + label .nav-dot:before {
   transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
 }
 
+.major{
+  position: fixed;
+  top: calc(50% - 4rem);
+  left: 50%;
+  -webkit-transform: translate(-50%, -300%);
+          transform: translate(-50%, -300%);
+  width: 70vw;
+  padding: 3.125rem 0 1.5rem;
+  text-transform: uppercase;
+  color: #000;
+  opacity: 1;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: .125rem;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
+  transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
+}
+
+
 .nav-dot {
   cursor: pointer;
   position: fixed;
@@ -207,6 +228,8 @@ label[for="input-5"] .nav-dot {
   margin-top: -100px;
 }
 
+
+
 label[for="input-6"] .nav-dot {
   margin-top: -75px;
 }
@@ -240,4 +263,13 @@ form {
   overflow: hidden;
 }
 
-
+input::-webkit-calendar-picker-indicator {
+  /*display: none;*/
+  color: #57068c;
+}
+/*
+.form-control:hover + .major,
+.form-control:focus + .major {
+  opacity: 0;
+}
+*/

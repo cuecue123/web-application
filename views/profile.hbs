@@ -1,146 +1,107 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>NYU Course Recommendation System</title>
-  
-  
-  
-      <link rel="stylesheet" href="stylesheets/profileStyle.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>NYU Course Recommendation System</title>
+    <link rel="stylesheet" href="stylesheets/profileStyle.css">
+  </head>
+  <body>
+    <div id="container">
+    <h1 style = "color: #885EAD; margin-top: 2em;">&bull; User Profile &bull;</h1>
+    <div class="underline"></div>
+    <form method="POST" action="">
+      <div class="name">
+        <label for="name"> FIRST NANE</label>
+        <input type="text" placeholder="{{firstname}}" name="name" id="name_input" readonly>
+      </div>
+      <div class="name">
+        <label for="name">LAST NAME</label>
+        <input type="text" placeholder="{{lastname}}" name="email" id="email_input" readonly>
+      </div>
+      <div class="name">
+        <label for="name">SCHOOL YEAR</label>
+        <input type="text" placeholder="{{year}}" name="telephone" id="telephone_input" readonly>
+      </div>
+      <div class="name">
+        <label for="subject">GPA</label>
+        <input type = "text" placeholder="{{gpa}}" name="subject" id="subject_input" readonly>   
+      </div>
 
-  
-</head>
+      <div class="name">
+        <label for="subject">MAJOR</label>
+        <input type = "text" placeholder="{{major}}" name="subject" id="subject_input" readonly> 
+      </div>
 
-<body>
-  <div id="container">
-  <h1 style = "color: #885EAD; margin-top: 2em;">&bull; User Profile &bull;</h1>
-  <div class="underline">
+      <div class="name">
+        <label for="subject">HOUR STUDYING</label>
+        <input type = "text" placeholder="{{hour}}" name="subject" id="subject_input" readonly>
+      </div>
+
+      <div class="name">
+        <label for="subject">DIFFICULTY PREFERENCE</label>
+        <input type = "text" placeholder="{{challenge}}" name="subject" id="subject_input" readonly>
+      </div>
+
+      <div class="name">
+        <label for="subject">NON-MAJOR INTEREST</label>
+        <input type = "text" placeholder="{{extra}}" name="subject" id="subject_input" readonly>
+      </div>
+
+      <div class="submit" style = "text-align: right; padding-right: 3%;">
+        <a href="/question" type="submit" id="form_button" style="text-decoration: none">MAKE CHANGES</a>
+      </div>
+
+      <hr style="border-top: 3px double #885EAD;">
+
+
+      <h1 style="color: #885EAD; margin-top: 2em;">&bull; Transcript &bull;</h1>
+      <div class="underline" style="margin-bottom: 3.5em; "></div>
+      {{#each courses}}
+      <div class = "courseEv">
+        <div class="name">
+          <label for="subject">COURSE NAME</label>
+          <input type = "text" placeholder="{{this.courseName}}" name="subject" id="subject_input" readonly>
+        </div>
+        
+        <div class="name">
+          <label for="subject">PROFESSOR</label>
+          <input type = "text" placeholder="{{this.professor}}" name="subject" id="subject_input" readonly>
+        </div>
+
+        <div class="name">
+          <label for="subject">GRADE</label>
+          <input type = "text" placeholder="{{this.grade}}" name="subject" id="subject_input" readonly>
+        </div>
+
+        <div class="name">
+          <label for="subject">INTEREST</label>
+          <input type = "text" placeholder="{{this.interest}}" name="subject" id="subject_input" readonly>
+        </div>
+
+        <div class="name">
+          <label for="subject">DIFFICULTY</label>
+          <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
+        </div>
+
+
+        <div class="name" style="visibility: hidden;">
+          <label for="subject">DIFFICULTY</label>
+          <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>  
+        </div>
+
+
+        <div class = "submit" style="text-align: right; padding-right: 3%;">
+          <button name = "submit" type="submit" id = "form_button" value = "{{@index}}" style="width: 177px;">DELETE</button>
+        </div>
+
+        <hr style="clear: left; border-color: #885EAD; opacity: 0.5;">
+
+      </div>
+      {{/each}}
+      <div class="submit" style = "text-align: right; padding-right: 3%;">
+        <a href="/transcript" type="submit" id="form_button" style="text-decoration: none; width: 177px; text-align: center; padding-left: 0; padding-right: 0;">ADD COURSES</a>
+      </div>
+    </form>
   </div>
-
-  <form method="POST" action="">
-    <div class="name">
-      <label for="name"> FIRST NANE</label>
-      <input type="text" placeholder="{{firstname}}" name="name" id="name_input" readonly>
-    </div>
-    <div class="name">
-      <label for="name">LAST NAME</label>
-      <input type="text" placeholder="{{lastname}}" name="email" id="email_input" readonly>
-    </div>
-    <div class="name">
-      <label for="name">SCHOOL YEAR</label>
-      <input type="text" placeholder="{{year}}" name="telephone" id="telephone_input" readonly>
-    </div>
-    <div class="name">
-      <label for="subject">GPA</label>
-      <input type = "text" placeholder="{{gpa}}" name="subject" id="subject_input" readonly>
-      
-    </div>
-
-        <div class="name">
-      <label for="subject">MAJOR</label>
-      <input type = "text" placeholder="{{major}}" name="subject" id="subject_input" readonly>
-      
-    </div>
-
-        <div class="name">
-      <label for="subject">HOUR STUDYING</label>
-      <input type = "text" placeholder="{{hour}}" name="subject" id="subject_input" readonly>
-      
-    </div>
-
-
-        <div class="name">
-      <label for="subject">DIFFICULTY PREFERENCE</label>
-      <input type = "text" placeholder="{{challenge}}" name="subject" id="subject_input" readonly>
-      
-    </div>
-
-
-    <div class="name">
-      <label for="subject">NON-MAJOR INTEREST</label>
-      <input type = "text" placeholder="{{extra}}" name="subject" id="subject_input" readonly>
-      
-    </div>
-
-    <div class="submit" style = "text-align: right; padding-right: 3%;">
-      <a href="/question" type="submit" id="form_button" style="text-decoration: none">MAKE CHANGES</a>
-    </div>
-
-  <hr style="border-top: 3px double #885EAD;">
-
-
-  <h1 style="color: #885EAD; margin-top: 2em;">&bull; Transcript &bull;</h1>
-    <div class="underline" style="margin-bottom: 3.5em; "></div>
-
-
-    {{#each courses}}
-    <div class = "courseEv">
-      <div class="name">
-        <label for="subject">COURSE NAME</label>
-        <input type = "text" placeholder="{{this.courseName}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-      
-
-      <div class="name">
-        <label for="subject">PROFESSOR</label>
-        <input type = "text" placeholder="{{this.professor}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-
-            <div class="name">
-        <label for="subject">GRADE</label>
-        <input type = "text" placeholder="{{this.grade}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-
-            <div class="name">
-        <label for="subject">INTEREST</label>
-        <input type = "text" placeholder="{{this.interest}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-
-      <div class="name">
-        <label for="subject">DIFFICULTY</label>
-        <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-
-
-      <div class="name" style="visibility: hidden;">
-        <label for="subject">DIFFICULTY</label>
-        <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
-        
-      </div>
-
-
-      <div class = "submit" style="text-align: right; padding-right: 3%;">
-  
-        <button name = "submit" type="submit" id = "form_button" value = "{{@index}}" style="width: 177px;">DELETE</button>
-        
-      </div>
-
-      <hr style="clear: left; border-color: #885EAD; opacity: 0.5;">
-
-    </div>
-    {{/each}}
-
-      
-
-
-
-
-    <div class="submit" style = "text-align: right; padding-right: 3%;">
-      <a href="/transcript" type="submit" id="form_button" style="text-decoration: none; width: 177px; text-align: center; padding-left: 0; padding-right: 0;">ADD COURSES</a>
-    </div>
-  </form><!-- // End form -->
-</div><!-- // End #container -->
-  <script>
-
-
-
-        
-  </script>
-  
-</body>
+  </body>
 </html>

@@ -304,3 +304,8 @@ hr{
     font-size: 0.5em;
   }
 }
+
+input::-webkit-calendar-picker-indicator {
+  /*display: none;*/
+  color: #57068c;
+}

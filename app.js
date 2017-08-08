@@ -270,7 +270,8 @@ app.post('/transcript', (req, res)=>{
 			}
 		);
 
-		res.render('transcript', {layout: 'navlayout', message: 'Add Another Class'});
+		// res.render('transcript', {layout: 'navlayout', message: 'Add Another Class'});
+		res.redirect('/profile');
 	}
 	else{
 		res.redirect("/");

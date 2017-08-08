@@ -1,56 +1,120 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>NYU Course Recommendation System</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>NYU Course Recommendation System</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/transcript.css">
+  </head>
 
-  
-      <link rel="stylesheet" href="stylesheets/transcript.css">
+  <body>
+    <form  method = "POST" action = "">
+      <input id="input-1" list = "courseList" pattern = "(Algorithmic Problem Solving)|(Applied Internet Tech)|(Basic Algorithms)|(Computer Graphics)|(Computer Systems Org)|(Computer Vision)|(Database Design and Web Implementation)|(Drawing on the Web)|(Introduction to Computer Programming)|(Introduction to Computer Simulation)|(Introduction to Web Design and Computer Principles)|(Intro to Computer SCI)|(iOS Programming)|(Machine Learning)|(Natural Language Processing)|(Operating Systems)|(Parallel Computing)|(Physical Computing)|(Python for Applications)|(Robotics)" oninvalid= "checkValid( 'Please enter a valid course name', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);"  type="text" name = "class_name" placeholder="Course Name" required autofocus />
 
-  
-</head>
+      <datalist id = "courseList">
 
-<body>
+        <option>Algorithmic Problem Solving</option>
+        <option>Applied Internet Tech</option>
+        <option>Basic Algorithms</option>
+        <option>Computer Graphics</option>
+        <option>Computer Systems Org</option>
+        <option>Computer Vision</option>
+        <option>Database Design and Web Implementation</option>
+        <option>Drawing on the Web</option>
+        <option>Introduction to Computer Programming</option>
+        <option>Introduction to Computer Simulation</option>
+        <option>Introduction to Web Design and Computer Principles</option>
+        <option>Intro to Computer SCI</option><option>iOS Programming</option>
+        <option>Machine Learning</option>
+        <option>Natural Language Processing</option>
+        <option>Operating Systems</option>
+        <option>Parallel Computing</option>
+        <option>Physical Computing</option>
+        <option>Python for Applications</option>
+        <option>Robotics</option>
 
-  <form  method = "POST" action = "">
-  
-  <input id="input-1" type="text" name = "class_name" placeholder="Predictive Analytics" required autofocus />
-  <label for="input-1">
-  	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;"> {{message}}</span>
-    <span class = "label-text">Course NAME</span>
-    <span class="nav-dot"></span>
+      
+      </datalist>
+      <label for="input-1">
+      	<span class = "label-text" style = "margin-top: -100px; font-weight: bold;"> {{message}}</span>
+        <span class = "label-text">Course NAME</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-2" list = "profList" type="text" oninvalid= "checkValid( 'Please enter a valid professor name', this.id)" pattern = "(Abraham Rubenstein)|(Adam J Scher)|(Adam L Meyers)|(Aftab Ahmad)|(Alan R Siegel)|(Allan Gottlieb)|(Alvaro F Olsen, Jr.)|(Amos Bloomberg)|(Brett J Peterson)|(Charles S Peskin)|(Chee Yap)|(Craig M Kapp)|(David A Sontag)|(Davi Geiger)|(Deena S Engel)|(Jerry Waxman)|(Joanna Klukowska)|(John Ruoyu Zhang)|(Joseph John Versoza)|(Joshua David Clayton)|(Kenneth Perlin)|(Lee-Sean Huang)|(Mohamed Zahran)|(Nathan Hull)|(Randy Jay Shepherd)|(Syed Salahuddin)|(Victor J Shoup)|(Zevensuy Rodriguez)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);" name = "class_professor" placeholder="Professor Name" required />
+        <datalist id = "profList">
+          <option>Abraham Rubenstein</option>
+          <option>Adam J Scher</option>
+          <option>Adam L Meyers</option>
+          <option>Aftab Ahmad</option>
+          <option>Alan R Siegel</option>
+          <option>Allan Gottlieb</option>
+          <option>Alvaro F Olsen, Jr.</option>
+          <option>Amos Bloomberg</option>
+          <option>Brett J Peterson</option>
+          <option>Charles S Peskin</option>
+          <option>Chee Yap</option>
+          <option>Craig M Kapp</option>
+          <option>David A Sontag</option>
+          <option>Davi Geiger</option>
+          <option>Deena S Engel</option>
+          <option>Jerry Waxman</option>
+          <option>Joanna Klukowska</option>
+          <option>John Ruoyu Zhang</option>
+          <option>Joseph John Versoza</option>
+          <option>Joshua David Clayton</option>
+          <option>Kenneth Perlin</option>
+          <option>Lee-Sean Huang</option>
+          <option>Mohamed Zahran</option>
+          <option>Nathan Hull</option>
+          <option>Randy Jay Shepherd</option>
+          <option>Syed Salahuddin</option>
+          <option>Victor J Shoup</option>
+          <option>Zevensuy Rodriguez</option>      
+        </datalist>
 
-    <!-- <div class="signup-button-trigger">Create Your Student Profile</div> -->
-  </label>
-  <input id="input-2" type="text" name = "class_professor" placeholder="Anasse Bari" required />
-  <label for="input-2">
-    <span class="label-text">What is your professor's full name?</span>
-    <span class="nav-dot"></span>
-  </label>
-  <input id="input-3" type="text" pattern = "[b-dB-D][+-]?|[fF]|[aA][-]?" title = "please enter a valid letter grade" name = 'class_grade' placeholder="A" required />
-  <label for="input-3">
-    <span class="label-text">Grade</span>
-    <span class="nav-dot"></span>
-  </label>
-  <input id="input-4" type="text" pattern = "[1-9]{1}|10" name = "class_interest" placeholder="10" required />
-  <label for="input-4">
-    <span class="label-text">On a scale from 1 to 10, how interesting was this course?</span>
-    <span class="nav-dot"></span>
-  </label>
-  <input id="input-5" type="text" pattern = "[1-9]{1}|10" name = "class_difficulty" placeholder="5" required />
-  <label for="input-5">
-    <span class="label-text">On a scale from 1 to 10, how difficult was this course?</span>
-    <span class="nav-dot"></span>
-  </label>
+      <label for="input-2">
+        <span class="label-text">What is your professor's full name?</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-3" type="text" oninvalid= "checkValid( 'Please enter a valid letter grade', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);"  pattern = "[b-dB-D][+-]?|[fF]|[aA][-]?"  autocomplete = "off" name = 'class_grade' placeholder="A" required />
+      <label for="input-3">
+        <span class="label-text">Grade</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-4" type="text" oninvalid= "checkValid( 'Please enter a number between 1 and 10', this.id)" onkeydown="return stopTab(event);"  oninput = "setCustomValidity('')" pattern = "[1-9]{1}|10" autocomplete = "off" name = "class_interest" placeholder="10" required />
+      <label for="input-4">
+        <span class="label-text">On a scale from 1 to 10, how interesting was this course?</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input id="input-5" type="text" oninvalid= "checkValid( 'Please enter a number between 1 and 10', this.id)" oninput = "setCustomValidity('')" onkeydown="return stopTab(event);"  pattern = "[1-9]{1}|10" autocomplete = "off" name = "class_difficulty" placeholder="5" required />
+      <label for="input-5">
+        <span class="label-text">On a scale from 1 to 10, how difficult was this course?</span>
+        <span class="nav-dot"></span>
+      </label>
+      <button type="submit" style="display: none" >Submit Your Course Evaluation</button>
+      <p class="tip">Press Enter</p>
+    </form>
+    <script>
+      function stopTab( e ) {
+          var evt = e || window.event
+          if ( evt.keyCode === 9 ) {
+              return false
+          }
+      }
 
-  
-  <button type="submit" >Submit Your Course Evaluation</button>
-  <p class="tip">Press Enter</p>
-  <!-- <div class="signup-button">Create Your Student Profile</div> -->
-</form>
-  
+       function checkValid(message, id){
+          console.log('entered');
+          console.log(id);
+          let selectElement = document.getElementById(id);
+          if (selectElement.value != ""){
+            selectElement.setCustomValidity(message);
+          }
+          else {
+            selectElement.setCustomValidity(" ");
+          }
 
-</body>
+       }
+    </script>
+  </body>
 </html>

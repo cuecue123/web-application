@@ -1,116 +1,106 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>NYU Course Recommendation System</title>
-  
-  
-  
-      <link rel="stylesheet" href="stylesheets/profileStyle.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>NYU Course Recommendation System</title>
+    <link rel="stylesheet" href="stylesheets/profileStyle.css">
+  </head>
+  <body>
+    <div id="container">
+    <h1 style = "color: #885EAD; margin-top: 2em;">&bull; Recommendation &bull;</h1>
+    <div class="underline">
+    </div>
 
-  
-</head>
-
-<body>
-  <div id="container">
-  <h1 style = "color: #885EAD; margin-top: 2em;">&bull; Recommendation &bull;</h1>
-  <div class="underline">
-  </div>
-
-  <form action = "" method = "POST">
-    <div id = "classList">
-      <div class="addCourse" style="clear: float;">
-        <label for="name">COURSE NAME</label>
-        <input type="text" placeholder="" name="name" id="name_input" class = "flag" required />
+    <form action = "" method = "POST">
+      <div id = "classList">
+        <div class="addCourse" style="clear: float;">
+          <label for="name">COURSE NAME</label>
+          <input type="text" list = "courseList" pattern = "(Algorithmic Problem Solving)|(Applied Internet Tech)|(Basic Algorithms)|(Computer Graphics)|(Computer Systems Org)|(Computer Vision)|(Database Design and Web Implementation)|(Drawing on the Web)|(Introduction to Computer Programming)|(Introduction to Computer Simulation)|(Introduction to Web Design and Computer Principles)|(Intro to Computer SCI)|(iOS Programming)|(Machine Learning)|(Natural Language Processing)|(Operating Systems)|(Parallel Computing)|(Physical Computing)|(Python for Applications)|(Robotics)" placeholder="" name="name" id="name_input" class = "flag" required />
+            <datalist id = "courseList">
+              <option>Algorithmic Problem Solving</option>
+              <option>Applied Internet Tech</option>
+              <option>Basic Algorithms</option>
+              <option>Computer Graphics</option>
+              <option>Computer Systems Org</option>
+              <option>Computer Vision</option>
+              <option>Database Design and Web Implementation</option>
+              <option>Drawing on the Web</option>
+              <option>Introduction to Computer Programming</option>
+              <option>Introduction to Computer Simulation</option>
+              <option>Introduction to Web Design and Computer Principles</option><option>Intro to Computer SCI</option>
+              <option>iOS Programming</option>
+              <option>Machine Learning</option>
+              <option>Natural Language Processing</option>
+              <option>Operating Systems</option>
+              <option>Parallel Computing</option>
+              <option>Physical Computing</option>
+              <option>Python for Applications</option>
+              <option>Robotics</option>
+            </datalist>
+        </div>
       </div>
-    </div>
-
-
-    <div style = "text-align: right; padding-right: 3%;">
-      <input type = "submit" id="form_button" value = "GET SCHEDULE" style="float: right; margin-right: -20px; width: 180px; height: 60px; text-align: center;" />
-    </div>
-
-
-  </form><!-- // End form -->
-
       <div style = "text-align: right; padding-right: 3%;">
-      <button onclick = "add()" id="form_button" style = "margin-bottom: 10px;  width: 180px; height: 60px; ">ADD COURSE</button>
+        <input type = "submit" id="form_button" value = "GET SCHEDULE" style="float: right; margin-right: -20px; width: 180px; height: 60px; text-align: center;" />
+      </div>
+    </form>
+    <div style = "text-align: right; padding-right: 3%;">
+      <button onclick = "add()" id="form_button" style = "margin-bottom: 12px;  width: 180px; height: 60px; ">ADD COURSE</button>
     </div>
-
-
     <div style = "text-align: right; padding-right: 3%; ">
       <button onclick = "remove()" id="form_button" style = "margin-bottom: 20px;  width: 180px; height: 60px; ">REMOVE</button>
-    </div>
-
-
-
-      
-</div><!-- // End #container -->
+    </div>  
+  </div>
   <script>
 
- 
-  function remove(){
+    var count = 0;
+    function remove(){
+      count --;
+      let classArr = document.getElementsByClassName('flag');
+      if (classArr.length > 1){
+        var classPool = document.getElementById('classList');
+        classPool.removeChild(classPool.lastChild);
 
-    let classArr = document.getElementsByClassName('flag');
-
-
-    if (classArr.length > 1){
-      var classPool = document.getElementById('classList');
-      classPool.removeChild(classPool.lastChild);
-
+      }
     }
 
+    function add(){
+      if (count < 4){
+        count ++;
+        let classArr = document.getElementsByClassName('flag');
+        var flagBool = false; 
 
-  }
-  function add(){
+        for (let i = 0; i < classArr.length; i++){
+          if (classArr[i].value == ''){
+            flagBool = true;
+          }
+        }
 
-  var count = 0;
-    if (count < 4){
-      count ++;
-      let classArr = document.getElementsByClassName('flag');
-      var flagBool = false; 
+        if (flagBool == false){
+          var parent = document.getElementById('classList');
+          var child = document.createElement('div');
+          child.setAttribute('class', 'addCourse');
+          var labels = document.createElement('label');
+          var inputs = document.createElement('input');
+          labels.setAttribute('for', 'name');
+          inputs.setAttribute('type','text');
+          let inputName = 'name'+count;
+          inputs.setAttribute( 'name',inputName);
+          inputs.setAttribute( 'id','name_input');
+          inputs.setAttribute('class', 'flag');
+          inputs.setAttribute('pattern', '(Algorithmic Problem Solving)|(Applied Internet Tech)|(Basic Algorithms)|(Computer Graphics)|(Computer Systems Org)|(Computer Vision)|(Database Design and Web Implementation)|(Drawing on the Web)|(Introduction to Computer Programming)|(Introduction to Computer Simulation)|(Introduction to Web Design and Computer Principles)|(Intro to Computer SCI)|(iOS Programming)|(Machine Learning)|(Natural Language Processing)|(Operating Systems)|(Parallel Computing)|(Physical Computing)|(Python for Applications)|(Robotics)')
+          var lists = document.createElement('datalist');
+          lists.setAttribute('id', 'classes'+count);
+          lists.innerHTML = "<option>Algorithmic Problem Solving</option><option>Applied Internet Tech</option><option>Basic Algorithms</option><option>Computer Graphics</option><option>Computer Systems Org</option><option>Computer Vision</option><option>Database Design and Web Implementation</option><option>Drawing on the Web</option><option>Introduction to Computer Programming</option><option>Introduction to Computer Simulation</option><option>Introduction to Web Design and Computer Principles</option><option>Intro to Computer SCI</option><option>iOS Programming</option><option>Machine Learning</option><option>Natural Language Processing</option><option>Operating Systems</option><option>Parallel Computing</option><option>Physical Computing</option><option>Python for Applications</option><option>Robotics</option>";
 
-      for (let i = 0; i < classArr.length; i++){
-        if (classArr[i].value == ''){
-          flagBool = true;
+         inputs.setAttribute('list', 'classes'+count);
+          child.appendChild(labels);
+          child.appendChild(inputs);
+          child.appendChild(lists);
+          parent.appendChild(child);
+
         }
       }
-
-      if (flagBool == false){
-        var parent = document.getElementById('classList');
-        var child = document.createElement('div');
-        child.setAttribute('class', 'addCourse');
-        var labels = document.createElement('label');
-        var inputs = document.createElement('input');
-        labels.setAttribute('for', 'name');
-        inputs.setAttribute('type','text');
-        let inputName = 'name'+count;
-        inputs.setAttribute( 'name',inputName);
-        inputs.setAttribute( 'id','name_input');
-        inputs.setAttribute('class', 'flag');
-
-        child.appendChild(labels);
-        child.appendChild(inputs);
-        parent.appendChild(child);
-
-      }
-
-
-    }
-
-  
-
-  }
-
-
-
-
-
-
-  
-
-    
+    }  
   </script>
-  
-</body>
+  </body>
 </html>
