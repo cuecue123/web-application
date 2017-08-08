@@ -263,7 +263,7 @@ hr{
     font-size: 14px;
   }
   label{
-    font-size: 10px;
+    font-size: 8px;
   }
   
   .icon {
@@ -285,10 +285,10 @@ hr{
 
 @media screen and (max-width: 340px) {
   h1 {
-    font-size: 10px;
+    font-size: 8px;
   }
   label{
-    font-size: 6px;
+    font-size: 4px;
   }
   
   .icon {
