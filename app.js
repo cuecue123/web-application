@@ -197,10 +197,13 @@ app.get('/profile', (req, res)=>{
 	
 	if (req.user){
 		User.findOne({username: req.user.username}, (err, user)=>{
+			let gpa = user.gpa;
+			if (gpa == "4" ||  gpa == "3" || gpa == "2" || gpa == "1" || gpa == "0"){
+					gpa = gpa + ".0";
+			}
 			
-				res.render('profile', {layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
+				res.render('profile', {layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
 
-			
 
 			
 		})

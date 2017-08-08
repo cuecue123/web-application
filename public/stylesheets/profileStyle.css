@@ -130,9 +130,9 @@ label{
 
 
 .addCourse{
-  width: 70%;
-  position: relative;
-  padding-left:28%;
+  width: 60%;
+
+  margin-left:20%;
   padding-right: 0%;
 
   }
@@ -243,7 +243,7 @@ hr{
 
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
   
   label{
@@ -260,7 +260,7 @@ hr{
 
 @media screen and (max-width: 420px) {
   h1 {
-    font-size: 18px;
+    font-size: 14px;
   }
   label{
     font-size: 10px;
@@ -275,7 +275,32 @@ hr{
     width: 53px;
   }
   
-  input[type='text'], [type='email'], select, textarea {
-    font-size: 0.875em;
+  input[type='text'], select, textarea {
+    font-size: 0.675em;
+  }
+}
+
+
+
+
+@media screen and (max-width: 340px) {
+  h1 {
+    font-size: 10px;
+  }
+  label{
+    font-size: 6px;
+  }
+  
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .underline {
+    width: 53px;
+  }
+  
+  input[type='text'], select, textarea {
+    font-size: 0.5em;
   }
 }

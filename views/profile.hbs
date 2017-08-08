@@ -100,7 +100,14 @@
         
       </div>
 
-      <div class="name" style="padding-bottom: 3em;">
+      <div class="name">
+        <label for="subject">DIFFICULTY</label>
+        <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
+        
+      </div>
+
+
+      <div class="name" style="visibility: hidden;">
         <label for="subject">DIFFICULTY</label>
         <input type = "text" placeholder="{{this.difficulty}}" name="subject" id="subject_input" readonly>
         
@@ -109,7 +116,7 @@
 
       <div class = "submit" style="text-align: right; padding-right: 3%;">
   
-        <button name = "submit" type="submit" id = "form_button" value = "{{@index}}" style="margin-top: 5.5%; width: 177px;">DELETE</button>
+        <button name = "submit" type="submit" id = "form_button" value = "{{@index}}" style="width: 177px;">DELETE</button>
         
       </div>
 
@@ -124,7 +131,7 @@
 
 
     <div class="submit" style = "text-align: right; padding-right: 3%;">
-      <a href="/transcript" type="submit" id="form_button" style="text-decoration: none">ADD COURSES</a>
+      <a href="/transcript" type="submit" id="form_button" style="text-decoration: none; width: 177px; text-align: center; padding-left: 0; padding-right: 0;">ADD COURSES</a>
     </div>
   </form><!-- // End form -->
 </div><!-- // End #container -->
