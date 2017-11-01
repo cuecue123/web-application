@@ -8,7 +8,7 @@
 
 3. and npm install of absent packages
 
-!![Log in page](documentation/LogIn.png)
+![Log in page](documentation/LogIn.png)
 / this is the page for log in and sign up, with media query that keeps the page looks good with different browser size
 
 
