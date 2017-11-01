@@ -2,11 +2,11 @@
 
 
 
-1. Initialize you local mongoDB
+1. Download mongoDB, and initialize you local mongoDB by typing ```mongod``` in the terminal 
 
-2. npm install.
+2. npm install express, hbs and all the absent packages
 
-3. and npm install of absent packages
+3. in the web-application root directory, run ```node app.js``` and access the webiste on ```http://localhost:3000```, depending on people's browser configuration, sometimes you can't access the website via safari, because it cannot establish a safe connection. You can try with chrome, and if there's a security warning, click the advanced button to enable access to the website.
 
 ![Log in page](documentation/LogIn.png)
 / this is the page for log in and sign up, with media query that keeps the page looks good with different browser size
