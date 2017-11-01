@@ -40,12 +40,10 @@ app.get('/', (req, res)=>{
 	if(req.user == null){
 		const notLoggedIn = true;
 		const LoggedIn = true;
-		// res.render('home', {notLoggedIn: notLoggedIn, layout: 'logNav'});
 		res.render('null', {layout: 'notLoggedIn'});
 	}
 	else{
 		const user = req.user.username;
-		// res.render('home', {user:user, layout: 'nav'});
 		res.redirect("/about");
 	}
 })
@@ -63,7 +61,7 @@ app.get('/question', (req, res)=>{
 			}
 			else{
 				res.render('questions', {layout: 'navlayout'});
-				// console.log("haha");
+			
 			}
 		});
 
@@ -119,6 +117,7 @@ app.post('/', (req, res, next)=>{
 				res.render('null', {layout: 'notLoggedIn', message: 'Your registration information is not valid'})
 			} else{
 				passport.authenticate('local')(req, res, function(){
+					console.log("LoggedIn as: ", user.username);
 					res.redirect('/about');
 				});
 			}
@@ -126,16 +125,16 @@ app.post('/', (req, res, next)=>{
 
 	}
 	else{
-		console.log(req.body.check);
+		
 		passport.authenticate('local', function(err, user){
+		
 			if(user){
-				console.log("h1");
+				
 				req.logIn(user, function(error){
-					console.log(user);
+					console.log("LoggedIn as: ", user.username);
 					res.redirect('/about');
 				});
 			} else{
-				console.log("entered");
 				res.render('null',  {layout: 'notLoggedIn', message:'Your username or password is incorrect.'})
 			}
 		})(req, res, next);
@@ -221,25 +220,10 @@ app.post('/profile', (req, res) =>{
 	  { username: req.user.username},
 	  {$pull: { courses: {courseName: req.user.courses[deleteBtn].courseName} } },
 	  function removeConnection(err, user){
-		// res.render('profile',{layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
 		res.redirect('/profile');
 	  }
 	);
 
-
-	// User.findOne({username: req.user.username}, (err, user)=>{
-	// 	var removeContent = user.courses[0].courseName;
-	// 	console.log(removeContent);
-	// 	// User.update({username: req.username}, {$pull, {'courses': {'courseName': removeContent}}});
-	// 	User.update(
-	//   { username: req.user.username},
-	//   { '$pull': { 'courses.courseName': removeContent } }
-	// );
-
-	// 	console.log(user.courses[0]);
-	// 	res.render('profile',{layout: 'navlayout', firstname: user.firstname, lastname: user.lastname, year: user.year, gpa: user.gpa, major: user.major, hour: user.hour, challenge: user.challenge, extra: user.extra, courses: user.courses });
-
-	// });
 })
 
 app.post('/transcript', (req, res)=>{
@@ -270,7 +254,6 @@ app.post('/transcript', (req, res)=>{
 			}
 		);
 
-		// res.render('transcript', {layout: 'navlayout', message: 'Add Another Class'});
 		res.redirect('/profile');
 	}
 	else{
