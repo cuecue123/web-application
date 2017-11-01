@@ -4,7 +4,7 @@
 
 1. Download mongoDB, and initialize you local mongoDB by typing ```mongod``` in the terminal 
 
-2. npm install express, hbs and all the absent packages
+2. before running the app, ```npm install express --save``` in the folder's root directory, also do that with ```hbs``` and all the absent packages
 
 3. in the web-application root directory, run ```node app.js``` and access the webiste on ```http://localhost:3000```, depending on people's browser configuration, sometimes you can't access the website via safari, because it cannot establish a safe connection. You can try with chrome, and if there's a security warning, click the advanced button to enable access to the website.
 
