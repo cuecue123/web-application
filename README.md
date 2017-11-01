@@ -1,7 +1,9 @@
 # NYU COURSE RECOMMENDATION SYSTEM
 
 
+Before running the app, you will have to install Node.js and npm in your computer.
 
+Then do:
 1. Download mongoDB, and initialize you local mongoDB by typing ```mongod``` in the terminal 
 
 2. before running the app, ```npm install express --save``` in the folder's root directory, also do that with ```hbs``` and all the absent packages
