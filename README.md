@@ -37,7 +37,20 @@ we enable autocomplete to some field that will significantly influence the resul
 ![Recommendation](documentation/Recommendation.png)
 /recommend reommendation page that allow user to input multiple class(maximum 5), and also allow them to remove course they add, and finally recommend the best section for each of the class.
 
+```
+var Course = new mongoose.Schema({
+id: {type:String,required:true},
+professor: {type:String},
+rating: {type: Number, default: -1},
+skillset: [{type: String}]
+});
+var Position = new mongoose.Schema({
+name: {type: String}
+skills: [{type: String}]
+courses: [Course],
+});
 
+```
 
 
 
